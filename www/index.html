@@ -6,12 +6,9 @@
         <title>PlayAround by Salted-Fish</title>
 
         <!--
-        <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
         -->
 
-        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-        -->
+    <!-- compiled css output -->
         <link href="css/ionic.app.css" rel="stylesheet">
 
         <!-- ionic/angularjs js -->
@@ -26,17 +23,108 @@
         <script src="js/services.js"></script>
     </head>
     <body ng-app="starter">
+
+
         <!--
         The nav bar that will be updated as we navigate between views.
         -->
         <ion-side-menus>
             <ion-side-menu-content>
-                <div class="list list-inset">
-                    <label class="item item-input">
-                        <i class="icon ion-search placeholder-icon"></i>
-                        <input type="text" placeholder="Search">
-                    </label>
+                <!-- Header -->
+                <div class="bar bar-header bar-energized" id="header">
+                    <button class="button icon button-clear ion-ios-arrow-left"></button>
+                    <button class="button icon button-clear ion-navicon" menu-toggle="right"></button>
                 </div>
+
+                <!-- Search bar -->
+               <div class="list" id="search-bar">
+                    <div class="item item-input" id="search-bar-inner">
+                        <input type="text" placeholder="搜索景点" id="search-input">
+                        <button class="button icon ion-ios-search-strong button-energized button-clear"></button>
+                    </div>
+                    <div class="item search-history">搜索历史1</div>
+                    <div class="item search-history">搜索历史2</div>
+                </div>
+
+                <div id="content">
+                    <!-- Map panel -->
+                    <div id="map-panel">
+                        <div id="map">
+                        </div>
+                        <!-- Filter panel -->
+                        <div class="list" id="filter-panel">
+                            <div class="item filter-item ion-funnel" id="filter-icon"></div>
+                            <div class="item filter-item ion-coffee" id="filter-1"></div>
+                            <div class="item filter-item ion-coffee" id="filter-2"></div>
+                            <div class="item filter-item ion-coffee" id="filter-3"></div>
+                            <div class="item filter-item ion-coffee" id="filter-4"></div>
+                            <div class="item filter-item ion-coffee" id="filter-5"></div>
+                            <div class="item filter-item ion-coffee" id="filter-6"></div>
+                            <div class="item filter-item ion-coffee" id="filter-7"></div>
+                            <div class="item filter-item ion-coffee" id="filter-8"></div>
+                            <div class="item filter-item ion-coffee" id="filter-9"></div>
+                            <div class="item filter-item ion-ios-arrow-back" id="filter-expand-button"></div>
+                        </div>
+                    </div>
+
+                    <div id="list-outer-container">
+                        <div id="prop-ctrl">拖动调整页面比例</div>
+                        <!-- Sort by option -->
+                        <div class="list" id="sort-menu">
+                            <div class="item sort-item item-icon-right" id="current-sort-container">
+                                <span id="current-sort">智能排序</span>
+                                <i class="icon ion-ios-arrow-down" id="sort-expand-icon"></i>
+                            </div>
+                            <div id="sort-item-container">
+                                <div class="item sort-item" id="sort-rating">评价最好</div>
+                                <div class="item sort-item" id="sort-distance">离我最近</div>
+                            </div>
+                        </div>
+                        <!-- Tourist attraction list -->
+                        <ion-scroll direction="y" id="list-inner-container">
+                            <div class="list" id="ta-list">
+                                <div class="item ta-item"></div>
+                                <div class="item ta-item">
+                                    <div class="ta-left-container">
+                                        <div class="ta-order">2</div>
+                                        <i class="icon ion-android-cart ta-type-icon"></i>
+                                    </div>
+                                    <div class="ta-image-container"></div>
+                                    <div class="ta-info-container">
+                                        <div class="ta-name">上海博物馆</div>
+                                        <div class="ta-rating-container">
+                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-1"></i>
+                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-2"></i>
+                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-3"></i>
+                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-4"></i>
+                                            <i class="icon ion-android-star-half ta-rating-star ta-rating-star-5"></i>
+                                            <span class="ta-rating">4.5</span>
+                                        </div>
+                                        <div class="ta-price-container">&#65509;<span class="ta-price">100</span></div>
+                                    </div>
+                                    <div class="ta-user-container">
+                                        <div class="ta-footprint-container">
+                                            <i class="icon ion-ios-paw ta-footprint-icon"></i>
+                                            <span class="ta-footprint">1000</span>
+                                        </div>
+                                        <div class="ta-wishlist-container">
+                                            <i class="icon ion-clipboard ta-wishlist-icon"></i>
+                                            <span class="ta-wishlist">1200</span>
+                                        </div>
+                                        <div class="ta-like-container">
+                                            <i class="icon ion-android-favorite-outline ta-like-icon"></i>
+                                            <span class="ta-like">800</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item ta-item"></div>
+                                <div class="item ta-item"></div>
+                                <div class="item ta-item"></div>
+                            </div>
+                        </ion-scroll>
+                    </div>
+                </div>
+
             </ion-side-menu-content>
             <ion-side-menu side="right">
                 <ion-list>
@@ -80,12 +168,6 @@
                 </ion-list>
             </ion-side-menu>
         </ion-side-menus>
-        <!--
-        <ion-nav-bar class="bar-stable">
-            <ion-nav-back-button>
-            </ion-nav-back-button>
-        </ion-nav-bar>
-        -->
         <!--
         The views will be rendered in the <ion-nav-view> directive below
             Templates are in the /templates folder (but you could also
