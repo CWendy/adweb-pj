@@ -19,9 +19,7 @@ Those templates and Javascripts were initially placed there. Change them wheneve
 ## Side Menu
 It's implemented by `<ion-side-menus>` and `<ion-list>`, decorated with some simple ion icons.
   
-
-***
-## Update by xiayan
+## Update 20160618
 更新主页html及css代码。仍有以下内容尚待开发和完善：  
 1. js文件控制的各种页面响应。   
 2. 搜索框左边带滑动条的城市选择栏，由于非pj文档要求且实现比较复杂，暂且搁置。  
@@ -32,4 +30,4 @@ It's implemented by `<ion-side-menus>` and `<ion-list>`, decorated with some sim
 其他页的前端由于时间不够还没有开始做，足迹/喜欢/心愿列表布局跟主页都差不多，写起来应该都比较快，剩下的主要任务是景观详细页。  
 感觉我写得好少，不要打我。要打打htc。  
 
-2016.06.18
+By xiayan
