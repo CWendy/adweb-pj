@@ -9816,14 +9816,15 @@ a.button {
   transition-duration: 0s; }
 
 * {
-  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri"; }
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
+  color: #444; }
 
 #search-bar {
   margin-left: auto;
   margin-right: auto;
   margin-top: 8px;
   margin-bottom: 8px;
-  width: 74%;
+  width: 73%;
   height: 29px;
   z-index: 233; }
 
@@ -9836,7 +9837,7 @@ a.button {
   padding-right: 0px; }
 
 .search-history {
-  padding: 3px;
+  padding: 4px;
   z-index: 233;
   font-size: 95%; }
 
@@ -9934,7 +9935,7 @@ span#current-sort {
 .ta-order {
   width: 100%;
   height: 50%;
-  margin-top: 10%;
+  margin-top: 2px;
   font-size: 145%; }
 
 .ta-type-icon {
@@ -9964,13 +9965,13 @@ span#current-sort {
   font-size: 80%; }
 
 .ta-price {
-  margin-left: -8%; }
+  margin-left: -2px; }
 
 .ta-user-container {
   font-size: 80%;
   width: 18%;
   height: 100%;
-  margin-top: -1%;
+  margin-top: -4px;
   margin-right: 2%; }
 
 .ta-footprint, .ta-wishlist, .ta-like {
@@ -9979,4 +9980,4 @@ span#current-sort {
 
 .ta-footprint-container, .ta-wishlist-container, .ta-like-container {
   width: 100%;
-  height: 35%; }
+  height: 38%; }
