@@ -26,7 +26,6 @@
         <script src="js/scenaryControllers.js"></script>
         <script src="js/actionControllers.js"></script>
         <script src="js/socialmediaControllers.js"></script>
-        <script src="js/jumpcontroller.js"></script>
     </head>
     <body ng-app="app">
         <!--
@@ -86,9 +85,9 @@
                         </div>
                         <!-- Tourist attraction list -->
                         <ion-scroll direction="y" id="list-inner-container">
-                            <div class="list" id="ta-list">
+                            <div class="list" id="ta-list" ng-controller="JumpCtrl">
                                 <div class="item ta-item"></div>
-                                <div class="item ta-item" ng-click="loginTapped()">
+                                <div class="item ta-item" ng-click="jumpToScenary()">
                                     <div class="ta-left-container">
                                         <div class="ta-order">2</div>
                                         <i class="icon ion-android-cart ta-type-icon"></i>

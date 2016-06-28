@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in starterControllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.services','jump.controllers'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,7 +39,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','jump.controll
     .state('index',{
      url:'/index',
       templateUrl:'index.html',
-      controller:'jumpcontroller'
     });
 
 
