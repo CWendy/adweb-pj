@@ -19,12 +19,15 @@
 
         <!-- your app's js -->
         <script src="js/app.js"></script>
-        <script src="js/controllers.js"></script>
         <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/mapControllers.js"></script>
+        <script src="js/userControllers.js"></script>
+        <script src="js/scenaryControllers.js"></script>
+        <script src="js/actionControllers.js"></script>
+        <script src="js/socialmediaControllers.js"></script>
     </head>
-    <body ng-app="starter">
-
-
+    <body ng-app="app">
         <!--
         The nav bar that will be updated as we navigate between views.
         -->
@@ -84,7 +87,7 @@
                         <ion-scroll direction="y" id="list-inner-container">
                             <div class="list" id="ta-list">
                                 <div class="item ta-item"></div>
-                                <div class="item ta-item">
+                                <div class="item ta-item" onclick="toScenaryPage()">
                                     <div class="ta-left-container">
                                         <div class="ta-order">2</div>
                                         <i class="icon ion-android-cart ta-type-icon"></i>
@@ -131,7 +134,7 @@
                     <a class="item item-avatar item-stable" href="#">
                         <img src="./img/adam.jpg"/>
                         <h2>用户</h2>
-                        <p>描述</p>
+                        <p>不可描述</p>
                     </a>
                     <a class="item item-icon-left" href="#">
                         <i class="icon ion-home"></i>
