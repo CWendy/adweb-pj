@@ -6,8 +6,8 @@ angular.module('action.controllers', [])
 })*/
 
  .controller("JumpCtrl", function ($scope, $state) {
-    $scope.jumpToScenary = function () {
-      $state.go('scenary');
+    $scope.jumpToScenery = function () {
+      $state.go('scenery');
     };
  })
 

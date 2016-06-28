@@ -32,9 +32,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
   $stateProvider
 
   // setup a state for the scenary page
-    .state('scenary', {
-    url: '/scenary',
-    templateUrl: 'scenary.html',
+    .state('scenery', {
+    url: '/scenery',
+    templateUrl: 'scenery.html',
   })
     .state('index',{
      url:'/index',

@@ -1,1 +1,1 @@
-angular.module('app.controllers', ['map.controllers', 'user.controllers', 'scenary.controllers', 'action.controllers', 'socialmedia.controllers']);
+angular.module('app.controllers', ['map.controllers', 'user.controllers', 'scenery.controllers', 'action.controllers', 'socialmedia.controllers']);
