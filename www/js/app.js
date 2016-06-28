@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in starterControllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services','jump.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -30,12 +30,19 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
+
   // setup a state for the scenary page
     .state('scenary', {
     url: '/scenary',
-    templateUrl: 'templates/tabs.html',
-  });
+    templateUrl: 'scenary.html',
+  })
+    .state('index',{
+     url:'/index',
+      templateUrl:'index.html',
+      controller:'jumpcontroller'
+    });
+
+
 
   // Each tab has its own nav history stack:
   /*
