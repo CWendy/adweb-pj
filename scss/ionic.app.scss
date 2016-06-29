@@ -21,13 +21,26 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-$fontforbrowser: 'Noto Sans CJK Sc', '华文细黑', '微软雅黑', 'AW Conqueror Didot Light', 'Calibri';
+$font-for-browser: 'Noto Sans CJK Sc', '华文细黑', '微软雅黑', 'AW Conqueror Didot Light', 'Calibri';
 $search-bar-height: 29px;
 $bar-height: 44px;
 
 * {
-    font-family: $fontforbrowser;
+    font-family: $font-for-browser;
     color: #444;
+}
+
+button {
+	font-family: $font-for-browser;
+	color: #fff;
+}
+
+p {
+	color: #444;
+}
+
+.scroll-bar-indicator {
+	display: none;
 }
 
 /* Styles for index.html */
@@ -67,7 +80,7 @@ $bar-height: 44px;
 
 #map-panel {
 	background-color: #fff;
-	height: 50%;
+	height: 45%;
 	overflow: hidden;
 }
 
@@ -103,13 +116,18 @@ $bar-height: 44px;
 	text-align: center;
 	background-color: $energized;
 	color: #fff;
+	height: 7%;
+	min-height: 20px;
 }
 
 #sort-menu {
 	width: 80px;
+	height: 12%;
+	min-height: 30px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 3px;
+	margin-bottom: 0px;
+	margin-top: 1%;
 	text-align: center;
 }
 
@@ -134,17 +152,15 @@ span#current-sort {
 }
 
 #list-outer-container {
-	height: 50%;
+	height: 55%;
+}
+
+#list-scroll {
+	height: 81%;
 }
 
 #list-inner-container {
-	height: 200px;
-	position: relative;
-	top: -70px;
-}
-
-#ta-list {
-	height: 500px;
+	min-height: 350px;
 }
 
 .ta-item {
@@ -171,8 +187,8 @@ span#current-sort {
 .ta-order {
 	width: 100%;
 	height: 50%;
-	margin-top: 2px;
-	font-size: 145%;
+	margin-top: 3px;
+	font-size: 140%;
 }
 
 .ta-type-icon {
@@ -220,7 +236,7 @@ span#current-sort {
 }
 
 .ta-footprint, .ta-wishlist, .ta-like {
-	font-size: 70%;
+	font-size: 90%;
 	margin-right: 5%;
 }
 
@@ -230,3 +246,269 @@ span#current-sort {
 }
 
 /* Styles for scenery.html */
+#scenery-content {
+	color: #444;
+	position: absolute;
+	top: $bar-height;
+	width: 100%;
+	height: 100%;
+}
+
+#scenery-title {
+	color: #fff;
+	font-size: 125%;
+	z-index: 233;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.scenery-item {
+	padding: 10px;
+	padding-left: 11px;
+	padding-right: 11px;
+	clear: both;
+	border-bottom: 0px;
+	border-top: 0px;
+}
+
+.item-divider {
+	clear: both;
+	text-align: center;
+	border-bottom: 0px;
+	border-top: 0px;
+}
+
+#scenery-map-panel {
+	background-color: #fff;
+	height: 40%;
+	overflow: hidden;
+}
+
+#scenery-map {
+	background-color: #eee;
+	height: 100%;
+}
+
+#scenery-outer-container {
+	height: 60%;
+}
+
+#scenery-prop-ctrl {
+	text-align: center;
+	background-color: $energized;
+	color: #fff;
+	height: 7%;
+	min-height: 20px;	
+}
+
+#scenery-inner-container {
+	min-height: 350px;
+}
+
+#scenery-scroll {
+	height: 80%;
+}
+
+#scenery-info-container {
+	border-top: 0px;
+}
+
+#scenery-info-left-container {
+	width: 60%;
+}
+
+#scenery-addr-container {
+	float: left;
+	width: 100%;
+	font-size: 90%;
+}
+
+#scenery-addr-title {
+	width: 25%;
+	float: left;
+}
+
+#scenery-addr {
+	width: 75%;
+	float: left;
+	color: #444;
+}
+
+#scenery-price-container {
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	font-size: 90%;
+}
+
+#scenery-price-title {
+	width: 25%;
+	float: left;
+}
+
+#scenery-price-right {
+	width: 75%;
+	float: left;
+}
+
+span#scenery-price {
+	margin-right: 1px;
+}
+
+#scenery-tag-container {
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+button.bt-scenery-tag {
+	font-size: 80%;
+	color: #fff;
+	padding: 0px;
+	background-color: $energized;
+	border: 0px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-bottom: 3px;
+}
+
+.scenery-tag{
+	height: 20px;
+	color: #fff;
+	border-right: 1px solid #fff;
+	display: inline-block;
+	padding-right: 3px;
+}
+
+.scenery-tag-cnt {
+	height: 20px;
+	color: #fff;
+	display: inline-block;
+	padding-left: 1px;
+}
+
+#scenery-info-right-container {
+	max-width: 32%;
+	font-size: 80%;
+	float: right;
+	text-align: left;
+}
+
+#scenery-rating-container, #scenery-rating-cnt-container, #scenery-user-container {
+	width: 100%;
+	float: right;
+}
+
+.scenery-rating-star {
+	float: left;
+	margin-right: 1px;
+}
+
+#scenery-rating {
+	margin-left: 2px;
+}
+
+#scenery-rating-cnt-container {
+	margin-top: -5px;
+}
+
+#scenery-user-container {
+	margin-top: 5px;
+	margin-bottom: 13px;
+}
+
+p#scenery-intro {
+	color: #444;
+}
+
+button#bt-scenery-expand-intro {
+	display: block;
+	background-color: $energized;
+	color: #fff;
+	border: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#scenery-image-outer-container {
+	height: 102px;
+	padding: 1px;
+	border: 0px;
+	margin: 10px;
+	margin-bottom: 8px;
+}
+
+
+#scenery-image-scroll {
+	width: 100%;
+	height: 100%;
+}
+
+img.scenery-image {
+	width: 100px;
+	height: 100px;
+	background-color: #eee;
+	border: 0px;
+	margin-right: 5px;
+}
+
+.scenery-comment-container {
+	border-top: 0px;
+	font-size: 100%;
+	margin-bottom: 15px;
+}
+
+.scenery-comment-time {
+	float: right;
+}
+
+.scenery-comment-user-avatar, .scenery-comment-username, .scenery-comment-user-rating, .scenery-comment, .scenery-comment-image-container {
+	float: left;
+}
+
+.scenery-comment-user-avatar {
+	width: 40px;
+	height: 40px;
+	background-color: #eee;
+}
+
+.scenery-comment-username {
+	margin-left: 10px;
+	width: 50%;
+}
+
+.scenery-comment-user-rating {
+	width: 50%;
+	margin-left: 10px;
+}
+
+.scenery-comment {
+	clear: both;
+	margin: 5px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.scenery-comment-image-container {
+	clear: both;
+	width: 100%;
+}
+
+.scenery-comment-image {
+	width: 50px;
+	height: 50px;
+}
+
+.scenery-comment-clear {
+	clear: both;
+}
+
+button#bt-scenery-comment-more {
+	display: block;
+	background-color: $energized;
+	color: #fff;
+	border: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}

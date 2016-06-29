@@ -84,45 +84,47 @@
                             </div>
                         </div>
                         <!-- Tourist attraction list -->
-                        <ion-scroll direction="y" id="list-inner-container">
-                            <div class="list" id="ta-list" ng-controller="JumpCtrl">
-                                <div class="item ta-item"></div>
-                                <div class="item ta-item" ng-click="jumpToScenery()">
-                                    <div class="ta-left-container">
-                                        <div class="ta-order">2</div>
-                                        <i class="icon ion-android-cart ta-type-icon"></i>
+                        <ion-scroll direction="y" id="list-scroll" scrollbar-y="false">
+                            <div id="list-inner-container">
+                                <div class="list" id="ta-list" ng-controller="JumpCtrl">
+                                    <div class="item ta-item">1</div>
+                                    <div class="item ta-item" ng-click="jumpToScenery()">
+                                        <div class="ta-left-container">
+                                            <div class="ta-order">2</div>
+                                            <i class="icon ion-android-cart ta-type-icon"></i>
+                                        </div>
+                                        <div class="ta-image-container" "></div>
+                                        <div class="ta-info-container">
+                                            <div class="ta-name" >上海博物馆</div>
+                                            <div class="ta-rating-container">
+                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-1"></i>
+                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-2"></i>
+                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-3"></i>
+                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-4"></i>
+                                                <i class="icon ion-android-star-half ta-rating-star ta-rating-star-5"></i>
+                                                <span class="ta-rating">4.5</span>
+                                            </div>
+                                            <div class="ta-price-container">&#65509;<span class="ta-price">100</span></div>
+                                        </div>
+                                        <div class="ta-user-container">
+                                            <div class="ta-footprint-container">
+                                                <i class="icon ion-ios-paw ta-footprint-icon"></i>
+                                                <span class="ta-footprint">1000</span>
+                                            </div>
+                                            <div class="ta-wishlist-container">
+                                                <i class="icon ion-clipboard ta-wishlist-icon"></i>
+                                                <span class="ta-wishlist">1200</span>
+                                            </div>
+                                            <div class="ta-like-container">
+                                                <i class="icon ion-android-favorite-outline ta-like-icon"></i>
+                                                <span class="ta-like">800</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="ta-image-container" "></div>
-                                    <div class="ta-info-container">
-                                        <div class="ta-name" >上海博物馆</div>
-                                        <div class="ta-rating-container">
-                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-1"></i>
-                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-2"></i>
-                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-3"></i>
-                                            <i class="icon ion-android-star ta-rating-star ta-rating-star-4"></i>
-                                            <i class="icon ion-android-star-half ta-rating-star ta-rating-star-5"></i>
-                                            <span class="ta-rating">4.5</span>
-                                        </div>
-                                        <div class="ta-price-container">&#65509;<span class="ta-price">100</span></div>
-                                    </div>
-                                    <div class="ta-user-container">
-                                        <div class="ta-footprint-container">
-                                            <i class="icon ion-ios-paw ta-footprint-icon"></i>
-                                            <span class="ta-footprint">1000</span>
-                                        </div>
-                                        <div class="ta-wishlist-container">
-                                            <i class="icon ion-clipboard ta-wishlist-icon"></i>
-                                            <span class="ta-wishlist">1200</span>
-                                        </div>
-                                        <div class="ta-like-container">
-                                            <i class="icon ion-android-favorite-outline ta-like-icon"></i>
-                                            <span class="ta-like">800</span>
-                                        </div>
-                                    </div>
+                                    <div class="item ta-item">3</div>
+                                    <div class="item ta-item">4</div>
+                                    <div class="item ta-item">5</div>
                                 </div>
-                                <div class="item ta-item"></div>
-                                <div class="item ta-item"></div>
-                                <div class="item ta-item"></div>
                             </div>
                         </ion-scroll>
                     </div>

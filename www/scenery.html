@@ -40,9 +40,113 @@
                 </div>
 
                 <!-- Title -->
-                <div id="scenery-title">上海博物馆</div>
+                <div class="list" id="scenery-title">上海博物馆</div>
 
-                <div id="content">
+                <div id="scenery-content">
+                    <!-- Map panel -->
+                    <div id="scenery-map-panel">
+                        <div id="scenery-map">
+                        </div>
+                    </div>
+
+                    <div id="scenery-outer-container">
+                        <div id="scenery-prop-ctrl">拖动调整页面比例</div>
+                        <!-- Tourist attraction list -->
+                        <ion-scroll direction="y" id="scenery-scroll">
+                            <div class="list" id="scenery-inner-container">
+                                <div class="item item-divider">景观信息</div>
+                                <div class="item item-text-wrap scenery-item" id="scenery-info-container">
+                                    <div id="scenery-info-right-container">
+                                        <div id="scenery-rating-container">
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-1"></i>
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-2"></i>
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-3"></i>
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-4"></i>
+                                            <i class="icon ion-android-star-half scenery-rating-star scenery-rating-star-5"></i>
+                                            <span id="scenery-rating">4.5</span>
+                                        </div>
+                                        <div id="scenery-rating-cnt-container">
+                                            <span id="scenery-rating-cnt">200</span>人评分
+                                        </div>
+                                        <div id="scenery-user-container">
+                                            <div id="scenery-footprint-container">
+                                                <i class="icon ion-ios-paw scenery-footprint-icon"></i>
+                                                <span id="scenery-footprint">1000</span>人去过
+                                            </div>
+                                            <div id="scenery-wishlist-container">
+                                                <i class="icon ion-clipboard scenery-wishlist-icon"></i>
+                                                <span id="scenery-wishlist">1200</span>人想去
+                                            </div>
+                                            <div id="scenery-like-container">
+                                                <i class="icon ion-android-favorite-outline scenery-like-icon"></i>
+                                                <span id="scenery-like">800</span>人喜欢
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="scenery-info-left-container">
+                                        <div id="scenery-addr-container">
+                                            <div id="scenery-addr-title">地址:</div>
+                                            <div id="scenery-addr">上海市黄浦区人民大道201号</div>
+                                        </div>
+                                        <div id="scenery-price-container">
+                                            <div id="scenery-price-title">票价:</div>
+                                            <div id="scenery-price-right"><span id="scenery-price">100</span>元/人</div>
+                                        </div>
+                                        <div id="scenery-tag-container">
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">历史</div>
+                                                <div class="scenery-tag-cnt">100</div>
+                                            </button>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">文化</div>
+                                                <div class="scenery-tag-cnt">80</div>
+                                            </button>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">人文景观</div>
+                                                <div class="scenery-tag-cnt">9</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item item-divider">景观介绍</div>
+                                <div class="item item-text-wrap scenery-item" id="scenery-intro-container">
+                                    <p id="scenery-intro">上海博物馆创建于1952年，原址在南京西路325号旧跑马总会，1959年10月迁入河南南路16号旧中汇大楼，现位于上海市中心人民广场的南侧黄浦区人民大道201号。<br />1993年8月，上海博物馆新馆开工建设，1996年10月12日全面建成开放。上海博物馆建筑总面积39200平方米，占地面积1.1万平方米，地下二层，地上五层，高29.5米，总投资5.7亿元。新馆是方体基座与圆形出挑相结合的建筑造型，具有中国“天圆地方”的寓意。馆名“上海博物馆”系建国后上海第一任市长陈毅所书。<br />上海博物馆设有十一个专馆，三个展览厅，陈列面积2,800平方米。馆藏文物近百万件，其中精品文物12万件，其中尤其是以青铜器、陶瓷器、书法、绘画为特色。收藏了来自宝鸡及河南、湖南等地的青铜器，有文物界“半壁江山”之誉，是一座大型的中国古代艺术博物馆。</p>
+                                    <button id="bt-scenery-expand-intro">展开详细介绍</button>
+                                </div>
+                                <div class="item item-divider">图片库</div>
+                                <div class="item scenery-item" id="scenery-image-outer-container">
+                                    <ion-scroll direction="x" id="scenery-image-scroll" scrollbar-x="false" scrollbar-y="false">
+                                        <div id="scenery-image-inner-container">
+                                            <img class="scenery-image" />
+                                            <img class="scenery-image" />
+                                            <img class="scenery-image" />
+                                            <img class="scenery-image" />
+                                            <img class="scenery-image" />
+                                        </div>
+                                    </ion-scroll>
+                                </div>
+                                <div class="item item-divider">网友评论</div>
+                                    <div class="item item-text-wrap scenery-comment-container">
+                                        <div class="scenery-comment-time">2016.06.29</div>
+                                        <img class="scenery-comment-user-avatar" />
+                                        <div class="scenery-comment-username">阿叽米德</div>
+                                        <div class="scenery-comment-user-rating">
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-1"></i>
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-2"></i>
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-3"></i>
+                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-4"></i>
+                                            <i class="icon ion-android-star-half scenery-rating-star scenery-rating-star-5"></i>
+                                        </div>
+                                        <div class="scenery-comment">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+                                        <div class="scenery-comment-image-container">
+                                            <img class="scenery-comment-image" />
+                                        </div>
+                                        <div class="scenery-comment-clear"></div>
+                                    </div>
+                                    <button id="bt-scenery-comment-more">更多评论</button>
+                            </div>
+                        </ion-scroll>
+                    </div>
                 </div>
 
             </ion-side-menu-content>
