@@ -21,13 +21,14 @@
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
         <script src="js/controllers.js"></script>
+        <script src="js/mapControllers.js"></script>
     </head>
     <body ng-app="app">
         <!--
         The nav bar that will be updated as we navigate between views.
         -->
         <ion-side-menus>
-            <ion-side-menu-content>
+            <ion-side-menu-content ng-controller="SceneryInfoCtrl">
                 <!-- Header -->
                 <div class="bar bar-header bar-energized" id="header">
                     <button class="button icon button-clear ion-ios-arrow-left"></button>
@@ -101,8 +102,8 @@
                                 </div>
                                 <div class="item item-divider">景观介绍</div>
                                 <div class="item item-text-wrap scenery-item" id="scenery-intro-container">
-                                    <p id="scenery-intro">上海博物馆创建于1952年，原址在南京西路325号旧跑马总会，1959年10月迁入河南南路16号旧中汇大楼，现位于上海市中心人民广场的南侧黄浦区人民大道201号。<br />1993年8月，上海博物馆新馆开工建设，1996年10月12日全面建成开放。上海博物馆建筑总面积39200平方米，占地面积1.1万平方米，地下二层，地上五层，高29.5米，总投资5.7亿元。新馆是方体基座与圆形出挑相结合的建筑造型，具有中国“天圆地方”的寓意。馆名“上海博物馆”系建国后上海第一任市长陈毅所书。<br />上海博物馆设有十一个专馆，三个展览厅，陈列面积2,800平方米。馆藏文物近百万件，其中精品文物12万件，其中尤其是以青铜器、陶瓷器、书法、绘画为特色。收藏了来自宝鸡及河南、湖南等地的青铜器，有文物界“半壁江山”之誉，是一座大型的中国古代艺术博物馆。</p>
-                                    <button id="bt-scenery-expand-intro">展开详细介绍</button>
+                                    <p id="scenery-intro" ng-class="{true: 'expanded', false: 'folded'}[isExpanded]">上海博物馆创建于1952年，原址在南京西路325号旧跑马总会，1959年10月迁入河南南路16号旧中汇大楼，现位于上海市中心人民广场的南侧黄浦区人民大道201号。<br />1993年8月，上海博物馆新馆开工建设，1996年10月12日全面建成开放。上海博物馆建筑总面积39200平方米，占地面积1.1万平方米，地下二层，地上五层，高29.5米，总投资5.7亿元。新馆是方体基座与圆形出挑相结合的建筑造型，具有中国“天圆地方”的寓意。馆名“上海博物馆”系建国后上海第一任市长陈毅所书。<br />上海博物馆设有十一个专馆，三个展览厅，陈列面积2,800平方米。馆藏文物近百万件，其中精品文物12万件，其中尤其是以青铜器、陶瓷器、书法、绘画为特色。收藏了来自宝鸡及河南、湖南等地的青铜器，有文物界“半壁江山”之誉，是一座大型的中国古代艺术博物馆。</p>
+                                    <button id="bt-scenery-expand-intro" ng-class="{true: 'bt-hide', false: 'bt-block'}[isExpanded]" ng-click="expandIntro()">展开详细介绍</button>
                                 </div>
                                 <div class="item item-divider">素材库</div>
                                 <div class="item scenery-item" id="scenery-image-outer-container">
@@ -156,55 +157,61 @@
                         </ion-scroll>
                     </div>
                 </div>
-                <div class="bar" id="scenery-popup-bg"></div>
-                <ion-content id="scenery-add-comment-popup" scroll="false">
-                    <div id="scenery-add-comment-popup-title">添加评价</div>
-                    <div id="scenery-add-comment-rating-container">
-                        <p class="scenery-add-comment-text">评分</p>
-                        <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-1"></i>
-                        <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-2"></i>
-                        <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-3"></i>
-                        <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-4"></i>
-                        <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-5"></i>                   
+                <div>
+                    <div class="bar" id="scenery-popup-bg" ng-show="commentPopup"></div>
+                    <ion-content id="scenery-add-comment-popup" scroll="false" ng-show="commentPopup">
+                        <div id="scenery-add-comment-popup-title">添加评价</div>
+                        <div id="scenery-add-comment-rating-container">
+                            <p class="scenery-add-comment-text">评分</p>
+                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-1"></i>
+                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-2"></i>
+                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-3"></i>
+                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-4"></i>
+                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-5"></i>                   
+                        </div>
+                        <div id="scenery-add-comment-comment-container">
+                           <p class="scenery-add-comment-text">评论</p>
+                           <textarea id="scenery-add-comment-comment-input"></textarea>
+                        </div>
+                        <div id="scenery-add-comment-file-container">
+                            <p class="scenery-add-comment-text">素材</p>
+                            <input type="file" multiple id="scenery-add-file"></button>
+                        </div>                
+                        <div id="scenery-add-comment-button-container">
+                            <button id="bt-scenery-add-comment-commit">提交</button>
+                            <button id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()">取消</button>
+                        </div>
+                    </ion-content>
+                    <div class="bar bar-footer">
+                        <button class="bt-scenery-footer" id="bt-scenery-add-wishlist" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]" ng-click="flipWishlist()">
+                            <i class="ion-clipboard scenery-footer-icon" id="scenery-add-wishlist-icon" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]"></i>
+                            <p class="scenery-footer-text" id="scenery-add-wishlist-text" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]">想去</p>
+                        </button>
+                        <button class="bt-scenery-footer" id="bt-scenery-add-footprint" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isFootprint]" ng-click="flipFootprint()">
+                            <i class="ion-ios-paw scenery-footer-icon" id="scenery-add-footprint-icon" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isFootprint]"></i>
+                            <p class="scenery-footer-text" id="scenery-add-footprint-text" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isFootprint]">去过</p>
+                        </button>
+                        <button class="bt-scenery-footer" id="bt-scenery-add-like" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isLike]" ng-click="flipLike()">
+                            <i class="ion-android-favorite-outline scenery-footer-icon" id="scenery-add-like-icon" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isLike]"></i>
+                            <p class="scenery-footer-text" id="scenery-add-like-text" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isLike]">喜欢</p>
+                        </button>
+                        <button class="bt-scenery-footer" id="bt-scenery-add-comment" ng-click="showCommentPopup()">
+                            <i class="ion-compose scenery-footer-icon" id="scenery-add-comment-icon"></i>
+                            <p class="scenery-footer-text" id="scenery-add-comment-text">评价</p>
+                        </button>
+                        <button class="bt-scenery-footer" id="bt-scenery-share">
+                            <i class="ion-share scenery-footer-icon" id="scenery-share-icon"></i>
+                            <p class="scenery-footer-text" id="scenery-share-text">分享</p>
+                        </button>
+                        <button class="bt-scenery-footer" id="bt-scenery-route">
+                            <i class="ion-android-navigate scenery-footer-icon" id="scenery-route-icon"></i>
+                            <p class="scenery-footer-text" id="scenery-route-text">路线</p>
+                        </button>
+                        <button class="bt-scenery-footer" id="bt-scenery-report">
+                            <i class="ion-android-alert scenery-footer-icon" id="scenery-report-icon"></i>
+                            <p class="scenery-footer-text" id="scenery-report-text">报错</p>
+                        </button>
                     </div>
-                    <div id="scenery-add-comment-comment-container">
-                       <p class="scenery-add-comment-text">评论</p>
-                       <textarea id="scenery-add-comment-comment-input"></textarea>
-                    </div>
-                    <div id="scenery-add-comment-file-container">
-                        <p class="scenery-add-comment-text">素材</p>
-                        <input type="file" multiple id="scenery-add-file"></button>
-                    </div>                
-                    <div id="scenery-add-comment-button-container">
-                        <button id="bt-scenery-add-comment-commit">提交</button>
-                        <button id="bt-scenery-add-comment-cancel">取消</button>
-                    </div>
-                </ion-content>
-                <div class="bar bar-footer">
-                    <button id="bt-scenery-add-wishlist">
-                        <i class="ion-clipboard" id="scenery-add-wishlist-icon"></i>
-                        <p id="scenery-add-wishlist-text">想去</p>
-                    </button>
-                    <button id="bt-scenery-add-footprint">
-                        <i class="ion-ios-paw" id="scenery-add-footprint-icon"></i>
-                        <p id="scenery-add-footprint-text">去过</p>
-                    </button>
-                    <button id="bt-scenery-add-like">
-                        <i class="ion-android-favorite-outline" id="scenery-add-like-icon"></i>
-                        <p id="scenery-add-like-text">喜欢</p>
-                    </button>
-                    <button id="bt-scenery-add-comment">
-                        <i class="ion-compose" id="scenery-add-comment-icon"></i>
-                        <p id="scenery-add-comment-text">评价</p>
-                    </button>
-                    <button id="bt-scenery-share">
-                        <i class="ion-share" id="scenery-share-icon"></i>
-                        <p id="scenery-share-text">分享</p>
-                    </button>
-                    <button id="bt-scenery-route">
-                        <i class="ion-android-navigate" id="scenery-route-icon"></i>
-                        <p id="scenery-route-text">路线</p>
-                    </button>
                 </div>
             </ion-side-menu-content>
             <ion-side-menu side="right">

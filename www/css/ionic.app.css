@@ -10148,7 +10148,21 @@ button.bt-scenery-tag {
   margin-bottom: 13px; }
 
 p#scenery-intro {
-  color: #444; }
+  color: #444;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.folded {
+  height: 100px; }
+
+.expanded {
+  height: auto; }
+
+.bt-block {
+  display: block; }
+
+.bt-hide {
+  display: none !important; }
 
 button#bt-scenery-expand-intro {
   display: block;
@@ -10156,7 +10170,9 @@ button#bt-scenery-expand-intro {
   color: #fff;
   border: 0px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 5px; }
 
 #scenery-image-outer-container {
   height: 102px;
@@ -10231,23 +10247,29 @@ button#bt-scenery-comment-more {
   border-top: 1px solid #ffc900;
   background-image: none !important; }
 
-#bt-scenery-add-wishlist, #bt-scenery-add-footprint, #bt-scenery-add-like, #bt-scenery-add-comment, #bt-scenery-share, #bt-scenery-route {
+.bt-scenery-footer {
   background-color: transparent;
   width: 44px;
   height: 44px;
   border: 0px;
-  /*margin-top: -2px;*/
-  margin-left: 6px; }
+  margin-left: 5px;
+  padding: 0px !important; }
 
-#scenery-add-wishlist-icon, #scenery-add-footprint-icon, #scenery-add-like-icon, #scenery-add-comment-icon, #scenery-share-icon, #scenery-route-icon {
+.bt-unclicked {
+  color: #444; }
+
+.bt-clicked {
+  color: #ffc900; }
+
+.scenery-footer-icon {
   font-size: 150%;
   height: 10px;
   position: relative;
-  top: -2px; }
+  top: -6px; }
 
-#scenery-add-wishlist-text, #scenery-add-footprint-text, #scenery-add-like-text, #scenery-add-comment-text, #scenery-share-text, #scenery-route-text {
+.scenery-footer-text {
   font-size: 50%;
-  margin-top: -21px;
+  margin-top: -24px;
   height: 15px; }
 
 #scenery-popup-bg {
