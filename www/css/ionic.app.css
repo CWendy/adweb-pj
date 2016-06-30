@@ -9826,6 +9826,11 @@ button {
 p {
   color: #444; }
 
+textarea {
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
+  color: #444;
+  font-size: 90%; }
+
 .scroll-bar-indicator {
   display: none; }
 
@@ -10011,7 +10016,8 @@ span#current-sort {
   font-size: 125%;
   z-index: 233;
   text-align: center;
-  margin-top: 10px; }
+  margin-top: 10px;
+  margin-bottom: 12px; }
 
 .scenery-item {
   padding: 10px;
@@ -10218,4 +10224,112 @@ button#bt-scenery-comment-more {
   border: 0px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px; }
+  margin-bottom: 65px; }
+
+.bar-footer {
+  padding: 0px;
+  border-top: 1px solid #ffc900;
+  background-image: none !important; }
+
+#bt-scenery-add-wishlist, #bt-scenery-add-footprint, #bt-scenery-add-like, #bt-scenery-add-comment, #bt-scenery-share, #bt-scenery-route {
+  background-color: transparent;
+  width: 44px;
+  height: 44px;
+  border: 0px;
+  /*margin-top: -2px;*/
+  margin-left: 6px; }
+
+#scenery-add-wishlist-icon, #scenery-add-footprint-icon, #scenery-add-like-icon, #scenery-add-comment-icon, #scenery-share-icon, #scenery-route-icon {
+  font-size: 150%;
+  height: 10px;
+  position: relative;
+  top: -2px; }
+
+#scenery-add-wishlist-text, #scenery-add-footprint-text, #scenery-add-like-text, #scenery-add-comment-text, #scenery-share-text, #scenery-route-text {
+  font-size: 50%;
+  margin-top: -21px;
+  height: 15px; }
+
+#scenery-popup-bg {
+  background-image: none !important;
+  background-color: #fff;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  z-index: 8;
+  position: absolute;
+  top: 0px; }
+
+#scenery-add-comment-popup {
+  width: 80%;
+  height: 233px;
+  background-color: #fff;
+  z-index: 233;
+  background-image: none !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  border: 1px solid #ffc900;
+  padding: 0px; }
+
+#scenery-add-comment-rating-container, #scenery-add-comment-comment-container, #scenery-add-comment-file-container {
+  clear: both;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000; }
+
+#scenery-add-comment-popup-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: #ffc900;
+  color: #fff;
+  height: 30px;
+  padding-top: 4px;
+  font-size: 110%; }
+
+.scenery-add-comment-text {
+  width: 15%;
+  float: left;
+  margin-left: 15px; }
+
+.scenery-add-rating-star {
+  font-size: 140%;
+  color: #ffc900;
+  margin-right: -1px; }
+
+#scenery-add-comment-comment-input {
+  float: left;
+  width: 70%;
+  height: 70px;
+  border: 1px solid #ddd;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 8px; }
+
+#scenery-add-file {
+  width: 70%;
+  float: left;
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
+  margin-bottom: 7px; }
+
+#scenery-add-comment-button-container {
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto; }
+
+#bt-scenery-add-comment-commit {
+  background-color: #ffc900;
+  color: #fff;
+  border: 0px;
+  width: 60px;
+  height: 27px;
+  margin-right: 5px; }
+
+#bt-scenery-add-comment-cancel {
+  background-color: #fff;
+  color: #ffc900;
+  border: 1px solid #ffc900;
+  width: 60px;
+  height: 27px; }
