@@ -10340,14 +10340,14 @@ button#bt-scenery-comment-more {
   top: 44px; }
 
 #login-title {
-  width: 85px;
+  width: 90px;
   font-size: 125%;
   background-color: transparent;
   background-image: none !important;
   color: #fff;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px; }
+  margin-top: 6px; }
 
 #bt-login, #bt-register {
   margin-left: 5%;
@@ -10375,7 +10375,7 @@ button#bt-scenery-comment-more {
   color: #fff;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px; }
+  margin-top: 6px; }
 
 #avatar-add-image {
   width: 200px;
