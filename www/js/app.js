@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in starterControllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,13 +38,13 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
   })
   
   .state('login', {
-    url: '/',
+    url: '/login',
     templateUrl:'login.html',
   })
 
   .state('index', {
     url: '/index',
-    templateUrl: 'index.html'
+    templateUrl:'index.html',
   })
 
   .state('avatar', {

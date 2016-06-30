@@ -1,6 +1,6 @@
 /* 用于显示、控制地图的控制器 */
-angular.module('app.controllers', [])
-    .directive('appMap', function() {
+var appDirectives = angular.module('app.directives', []);
+appDirectives.directive('appMap', function() {
         return {
             restrict: "E",
             replace: true,
@@ -36,4 +36,4 @@ angular.module('app.controllers', [])
                 map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
             }
         };
-    }) ;
+    });

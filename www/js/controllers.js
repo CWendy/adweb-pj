@@ -1,41 +1,37 @@
-angular.module('app.controllers', ['map.controllers'])
-	.controller("HeaderCtrl", function ($scope, $state) {
+var appControllers = angular.module('app.controllers', []);
+
+appControllers.controller("SceneryListCtrl", function ($scope, $state) {
+        $scope.jumpToScenery = function () {
+            $state.go('scenery');
+        };
     })
 
+    .controller("SceneryInfoCtrl", function ($scope, $state) {
+        $scope.isExpanded = false;
+        $scope.commentPopup = false;
+        // 默认应该设置为后台返回数据，而不是false
+        $scope.isWishlist = false;
+        $scope.isFootprint = false;
+        $scope.isLike = false;
 
-	.controller("SceneryListCtrl", function ($scope, $state) {
-    	$scope.jumpToScenery = function () {
-      		$state.go('scenery');
-    	};
-	})
+        $scope.expandIntro = function () {
+            $scope.isExpanded = true;
+        };
 
-	.controller("SceneryInfoCtrl", function ($scope, $state) {
-    	$scope.isExpanded = false;
-    	$scope.commentPopup = false;
-    	/* 默认应该设置为后台返回数据，而不是false */
-    	$scope.isWishlist = false;
-    	$scope.isFootprint = false;
-    	$scope.isLike = false;
+        $scope.showCommentPopup = function () {
+            $scope.commentPopup = true;
+        };
+        $scope.hideCommentPopup = function () {
+            $scope.commentPopup = false;
+        };      
 
-    	$scope.expandIntro = function () {
-    		$scope.isExpanded = true;
-    	};
-
-    	$scope.showCommentPopup = function () {
-    		$scope.commentPopup = true;
-    	};
-    	$scope.hideCommentPopup = function () {
-    		$scope.commentPopup = false;
-    	};    	
-
-    	$scope.flipWishlist = function () {
-    		$scope.isWishlist = !$scope.isWishlist;
-    	};
-    	$scope.flipFootprint = function () {
-    		$scope.isFootprint = !$scope.isFootprint;
-    	};
-    	$scope.flipLike = function () {
-    		$scope.isLike = !$scope.isLike;
-    	};
-    })
-;
+        $scope.flipWishlist = function () {
+            $scope.isWishlist = !$scope.isWishlist;
+        };
+        $scope.flipFootprint = function () {
+            $scope.isFootprint = !$scope.isFootprint;
+        };
+        $scope.flipLike = function () {
+            $scope.isLike = !$scope.isLike;
+        };
+});
