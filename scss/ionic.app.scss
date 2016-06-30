@@ -292,9 +292,8 @@ span#current-sort {
 	overflow: hidden;
 }
 
-#scenery-map {
-	background-color: #eee;
-	height: 100%;
+.scenery-map {
+	height: 40% !important;
 }
 
 #scenery-outer-container {
@@ -307,6 +306,7 @@ span#current-sort {
 	color: #fff;
 	height: 7%;
 	min-height: 20px;	
+	z-index: 100;
 }
 
 #scenery-inner-container {

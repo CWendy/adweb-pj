@@ -10038,9 +10038,8 @@ span#current-sort {
   height: 40%;
   overflow: hidden; }
 
-#scenery-map {
-  background-color: #eee;
-  height: 100%; }
+.scenery-map {
+  height: 40% !important; }
 
 #scenery-outer-container {
   height: 60%; }
@@ -10050,7 +10049,8 @@ span#current-sort {
   background-color: #ffc900;
   color: #fff;
   height: 7%;
-  min-height: 20px; }
+  min-height: 20px;
+  z-index: 100; }
 
 #scenery-inner-container {
   min-height: 350px; }

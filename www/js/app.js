@@ -29,7 +29,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
+  /*$stateProvider
 
   // setup a state for the scenary page
   .state('scenery', {
@@ -50,7 +50,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
   .state('avatar', {
     url: '/avatar',
     templateUrl: 'avatar.html'
-  });
+  });*/
 
   // Each tab has its own nav history stack:
   /*

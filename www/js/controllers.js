@@ -2,7 +2,8 @@ var appControllers = angular.module('app.controllers', []);
 
 appControllers.controller("SceneryListCtrl", function ($scope, $state) {
         $scope.jumpToScenery = function () {
-            $state.go('scenery');
+            //$state.go('scenery');
+            self.location = "scenery.html";
         };
     })
 
