@@ -10263,7 +10263,7 @@ button#bt-scenery-comment-more {
 
 #scenery-add-comment-popup {
   width: 80%;
-  height: 233px;
+  height: 234px;
   background-color: #fff;
   z-index: 233;
   background-image: none !important;
@@ -10312,7 +10312,7 @@ button#bt-scenery-comment-more {
   width: 70%;
   float: left;
   font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
-  margin-bottom: 7px; }
+  margin-bottom: 8px; }
 
 #scenery-add-comment-button-container {
   width: 130px;
@@ -10333,3 +10333,76 @@ button#bt-scenery-comment-more {
   border: 1px solid #ffc900;
   width: 60px;
   height: 27px; }
+
+/* Styles for login.html */
+#login-content {
+  position: relative;
+  top: 44px; }
+
+#login-title {
+  width: 85px;
+  font-size: 125%;
+  background-color: transparent;
+  background-image: none !important;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px; }
+
+#bt-login, #bt-register {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%; }
+
+#three-login {
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0px; }
+
+.bt-wechat {
+  float: left; }
+
+.bt-qq {
+  float: right; }
+
+/* Styles for avatar.html */
+#avatar-title {
+  width: 85px;
+  font-size: 125%;
+  background-color: transparent;
+  background-image: none !important;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px; }
+
+#avatar-add-image {
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 110px;
+  text-align: center;
+  line-height: 155px;
+  color: #ffc900;
+  border: 5px dashed #ffc900;
+  background-color: #fff; }
+
+#avatar-add-image-text {
+  font-size: 550%;
+  color: #ffc900;
+  background-color: #fff; }
+
+#bt-choose-avatar {
+  width: 75px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto; }
+
+#bt-change-avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 40%; }

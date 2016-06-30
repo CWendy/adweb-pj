@@ -21,11 +21,6 @@
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
         <script src="js/controllers.js"></script>
-        <script src="js/mapControllers.js"></script>
-        <script src="js/userControllers.js"></script>
-        <script src="js/sceneryControllers.js"></script>
-        <script src="js/actionControllers.js"></script>
-        <script src="js/socialmediaControllers.js"></script>
         <script src="http://api.map.baidu.com/api?v=2.0&ak=GZOFg4UOLYxKWmqGSSIpH6pkAQVWsjCN"></script>
     </head>
     <body ng-app="app">
@@ -83,7 +78,7 @@
                         <!-- Tourist attraction list -->
                         <ion-scroll direction="y" id="list-scroll" scrollbar-y="false">
                             <div id="list-inner-container">
-                                <div class="list" id="ta-list" ng-controller="JumpCtrl">
+                                <div class="list" id="ta-list" ng-controller="SceneryListCtrl">
                                     <div class="item ta-item">1</div>
                                     <div class="item ta-item" ng-click="jumpToScenery()">
                                         <div class="ta-left-container">

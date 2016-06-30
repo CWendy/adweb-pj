@@ -32,16 +32,25 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
   $stateProvider
 
   // setup a state for the scenary page
-    .state('scenery', {
+  .state('scenery', {
     url: '/scenery',
     templateUrl: 'scenery.html',
   })
-    .state('index',{
-     url:'/index',
-      templateUrl:'index.html',
-    });
+  
+  .state('login', {
+    url: '/',
+    templateUrl:'login.html',
+  })
 
+  .state('index', {
+    url: '/index',
+    templateUrl: 'index.html'
+  })
 
+  .state('avatar', {
+    url: '/avatar',
+    templateUrl: 'avatar.html'
+  });
 
   // Each tab has its own nav history stack:
   /*
