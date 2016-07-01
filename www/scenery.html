@@ -193,8 +193,8 @@
                                 <input type="file" multiple id="scenery-add-file" />
                             </div>                
                             <div class="scenery-popup-container scenery-popup-button-container" id="scenery-add-comment-button-container">
-                                <button class="bt-popup-commit" id="bt-scenery-add-comment-commit" ng-click="commitComment()">提交</button>
-                                <button class="bt-popup-cancel" id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()">取消</button>
+                                <input type="submit" class="bt-popup-commit" id="bt-scenery-add-comment-commit" ng-click="commitComment()" />
+                                <input type="button" value="取消" class="bt-popup-cancel" id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()" />
                             </div>
                         </form>
                     </ion-content>
