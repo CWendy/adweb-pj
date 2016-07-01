@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -25,149 +25,38 @@
         <script src="http://api.map.baidu.com/api?v=2.0&ak=GZOFg4UOLYxKWmqGSSIpH6pkAQVWsjCN"></script>
     </head>
     <body ng-app="app">
-        <ion-side-menus>
-            <ion-side-menu-content edge-drag-threshold="true" drag-content="true">
-                <!-- Header -->
-                <div class="bar bar-header bar-energized" id="header" ng-controller="HeaderCtrl">
-                    <button class="button icon button-clear ion-ios-arrow-left" ng-click="goBack()"></button>
-                    <button class="button icon button-clear ion-navicon" menu-toggle="right"></button>
-                </div>
 
-                <!-- Search bar -->
-               <div class="list" id="search-bar" ng-controller="SearchCtrl">
-                    <div class="item item-input" id="search-bar-inner">
-                        <input type="text" id="search-input" ng-click="showHistory()">
-                        <button class="button icon ion-ios-search-strong button-energized button-clear"></button>
-                    </div>
-                    <div class="item search-history" ng-show="isHistoryShown">搜索历史1</div>
-                    <div class="item search-history" ng-show="isHistoryShown">搜索历史2</div>
-                </div>
+    <ion-side-menus>
+      <ion-side-menu-content>
+        <div class="bar bar-header bar-energized"></div>
 
-                <div id="content" ng-controller="SceneryListCtrl">
-                    <!-- Map panel -->
-                    <div id="map-panel">
-                        <ion-view view-title = "BDMap" id="map">
-                            <ion-content>
-                                <app-map style="height:100%;margin:0px;" address={{address}}></app-map>
-                            </ion-content>
-                        </ion-view>
-                        <!-- Filter panel -->
-                        <div class="list" id="filter-panel">
-                            <div class="item filter-item ion-funnel" id="filter-icon"></div>
-                            <div class="item filter-item ion-coffee" id="filter-1"></div>
-                            <div class="item filter-item ion-coffee" id="filter-2"></div>
-                            <div class="item filter-item ion-coffee" id="filter-3"></div>
-                            <div class="item filter-item ion-coffee" id="filter-4"></div>
-                            <div class="item filter-item ion-coffee" id="filter-5"></div>
-                            <div class="item filter-item ion-ios-arrow-back" id="filter-expand-button"></div>
-                        </div>
-                    </div>
+        <div class="bar" id="login-title">登录/注册</div>
 
-                    <div id="list-outer-container">
-                        <div id="prop-ctrl"><div id="prop-ctrl-rec"></div></div>
-                        <!-- Sort by option -->
-                        <div class="list" id="sort-menu">
-                            <div class="item sort-item item-icon-right" id="current-sort-container" ng-click="showSortMenu()">
-                                <span id="current-sort" ng-model="sortMetric">{{ sortMetric }}</span>
-                                <i class="icon ion-ios-arrow-down" id="sort-expand-icon"></i>
-                            </div>
-                            <div id="sort-item-container" ng-show="isSortMenuShown">
-                                <div class="item sort-item" ng-show="!isSortByRecommend" ng-click="sortByRecommend()">智能排序</div>
-                                <div class="item sort-item" ng-show="!isSortByRating" ng-click="sortByRating()">最高评分</div>
-                                <div class="item sort-item" ng-show="!isSortByWishlist" ng-click="sortByWishlist()">最多想去</div>
-                                <div class="item sort-item" ng-show="!isSortByFootprint" ng-click="sortByFootprint()">最多去过</div>
-                                <div class="item sort-item" ng-show="!isSortByLike" ng-click="sortByLike()">最多喜欢</div>
-                            </div>
-                        </div>
-                        <!-- Tourist attraction list -->
-                        <ion-scroll direction="y" id="list-scroll" scrollbar-y="false">
-                            <div id="list-inner-container">
-                                <div class="list" id="ta-list">
-                                    <div class="item ta-item">1</div>
-                                    <div class="item ta-item" ng-click="jumpToScenery()">
-                                        <div class="ta-left-container">
-                                            <div class="ta-order">2</div>
-                                            <i class="icon ion-android-cart ta-type-icon"></i>
-                                        </div>
-                                        <div class="ta-image-container" "></div>
-                                        <div class="ta-info-container">
-                                            <div class="ta-name" >上海博物馆</div>
-                                            <div class="ta-rating-container">
-                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-1"></i>
-                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-2"></i>
-                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-3"></i>
-                                                <i class="icon ion-android-star ta-rating-star ta-rating-star-4"></i>
-                                                <i class="icon ion-android-star-half ta-rating-star ta-rating-star-5"></i>
-                                                <span class="ta-rating">4.5</span>
-                                            </div>
-                                        </div>
-                                        <div class="ta-user-container">
-                                            <div class="ta-footprint-container">
-                                                <i class="icon ion-ios-paw ta-footprint-icon"></i>
-                                                <span class="ta-footprint">1000</span>
-                                            </div>
-                                            <div class="ta-wishlist-container">
-                                                <i class="icon ion-clipboard ta-wishlist-icon"></i>
-                                                <span class="ta-wishlist">1200</span>
-                                            </div>
-                                            <div class="ta-like-container">
-                                                <i class="icon ion-android-favorite-outline ta-like-icon"></i>
-                                                <span class="ta-like">800</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item ta-item">3</div>
-                                    <div class="item ta-item">4</div>
-                                    <div class="item ta-item">5</div>
-                                </div>
-                            </div>
-                        </ion-scroll>
-                    </div>
-                </div>
-            </ion-side-menu-content>
-            <ion-side-menu side="right">
-                <ion-list>
-                    <a class="item item-avatar item-stable" href="#">
-                        <img src="./img/adam.jpg"/>
-                        <h2>用户</h2>
-                        <p>不可描述</p>
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-home"></i>
-                        主页
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-search"></i>
-                        搜索
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-bookmark"></i>
-                        心愿单
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-heart"></i>
-                        喜欢
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-android-walk"></i>
-                        足迹
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-calendar"></i>
-                        历史
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-thumbsup"></i>
-                        推荐
-                    </a>
-                    <a class="item item-icon-left" href="#">
-                        <i class="icon ion-information-circled"></i>
-                        关于我们
-                    </a>
-                </ion-list>
-            </ion-side-menu>
-        </ion-side-menus>
-        <ion-nav-view>
-        </ion-nav-view>
+        <div id="login-content" ng-controller="LoginCtrl">
+          <div class="list" >
+            <label class="item item-input" id="login-id">
+                <span class="input-label">用户名</span>
+              <input type="text" placeholder="输入您的用户名" id="username">
+            </label>
+            <label class="item item-input" id="login-password">
+                <span class="input-label">密码</span>
+              <input type="password" placeholder="输入4-10位字符" id="password">
+            </label>
+          </div>
+          <div >
+            <button class="button button-block button-outline button-energized" id="bt-login" ng-click="login()">登录</button>
+            <button class="button button-block button-outline button-energized" id="bt-register" ng-click="register()">注册</button>
+          </div>
+          <div class="padding" id="three-login">
+            <button class="button button-outline button-small button-light bt-wechat" >微信账号登录</button>
+            <button class="button button-outline button-small button-light bt-qq">QQ账号登录</button>
+          </div>
+
+
+        </div>
+      </ion-side-menu-content>
+    </ion-side-menus>
+
+
     </body>
-</html>
+    </html>

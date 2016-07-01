@@ -1,6 +1,15 @@
 var appControllers = angular.module('app.controllers', []);
 
 appControllers
+    .controller("LoginCtrl", function ($scope) {
+        // 登录
+        $scope.login = function () {
+
+            // 跳转页面
+            self.location = "search.html";
+        };
+    })  
+
     .controller("HeaderCtrl", function ($scope) {
         // 返回上一页
         $scope.goBack = function () {
