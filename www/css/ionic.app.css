@@ -9935,7 +9935,8 @@ textarea {
   margin-right: auto;
   margin-bottom: 0px;
   margin-top: 1%;
-  text-align: center; }
+  text-align: center;
+  background-color: #fff; }
 
 .sort-item {
   font-size: 95%;
@@ -9954,10 +9955,15 @@ span#current-sort {
   margin-top: 1px; }
 
 #list-outer-container {
-  height: 55%; }
+  width: 100%;
+  height: 55%;
+  z-index: 20;
+  position: absolute;
+  top: 45%;
+  background-color: #fff; }
 
 #list-scroll {
-  height: 81%; }
+  height: 80%; }
 
 #list-inner-container {
   min-height: 350px; }
@@ -10071,7 +10077,9 @@ span#current-sort {
   height: 40% !important; }
 
 #scenery-outer-container {
-  height: 60%; }
+  height: 60%;
+  z-index: 9;
+  background-color: #fff; }
 
 #scenery-inner-container {
   min-height: 350px; }
@@ -10379,6 +10387,9 @@ span.scenery-rating-label {
   width: 60px;
   height: 27px;
   margin-right: 5px; }
+
+#bt-scenery-add-comment-commit {
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri"; }
 
 .bt-popup-cancel {
   background-color: #fff;

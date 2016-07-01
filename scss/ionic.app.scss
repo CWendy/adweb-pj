@@ -168,6 +168,7 @@ textarea {
 	margin-bottom: 0px;
 	margin-top: 1%;
 	text-align: center;
+	background-color: #fff;
 }
 
 .sort-item {
@@ -191,11 +192,16 @@ span#current-sort {
 }
 
 #list-outer-container {
+	width: 100%;
 	height: 55%;
+	z-index: 20;
+	position: absolute;
+	top: 45%;
+	background-color: #fff;
 }
 
 #list-scroll {
-	height: 81%;
+	height: 80%;
 }
 
 #list-inner-container {
@@ -333,6 +339,8 @@ span#current-sort {
 
 #scenery-outer-container {
 	height: 60%;
+	z-index: 9;
+	background-color: #fff;
 }
 
 #scenery-inner-container {
