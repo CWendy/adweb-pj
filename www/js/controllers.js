@@ -26,6 +26,24 @@ appControllers
         };
     })
 
+    .controller("FilterCtrl", function ($scope) {
+        $scope.isFilter1On = true;
+        $scope.isFilter2On = true;
+        $scope.isFilter3On = true;
+
+        $scope.flipFilter1 = function () {
+            $scope.isFilter1On = !$scope.isFilter1On;
+        };
+
+        $scope.flipFilter2 = function () {
+            $scope.isFilter2On = !$scope.isFilter2On;
+        };
+
+        $scope.flipFilter3 = function () {
+            $scope.isFilter3On = !$scope.isFilter3On;
+        };        
+    })
+
     .controller("SceneryListCtrl", function ($scope) {
         // 排序下拉菜单控制
         $scope.isSortMenuShown = false;
@@ -105,6 +123,8 @@ appControllers
         $scope.qabtPopup = false;
         $scope.questionnairePopup = false;
         $scope.advicePopup = false;
+        $scope.tagPopup = false;
+        $scope.tagType = "景观类型";
         // 默认应该设置为后台返回数据，而不是false
         $scope.isWishlist = false;
         $scope.isFootprint = false;
@@ -123,6 +143,7 @@ appControllers
             $scope.qabtPopup = false;
             $scope.questionnairePopup = false;
             $scope.advicePopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideCommentPopup = function () {
             $scope.popup = false;
@@ -137,6 +158,7 @@ appControllers
             $scope.qabtPopup = false;
             $scope.questionnairePopup = false;
             $scope.advicePopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideSharePopup = function () {
             $scope.popup = false;
@@ -151,6 +173,7 @@ appControllers
             $scope.qabtPopup = false;
             $scope.questionnairePopup = false;
             $scope.advicePopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideRoutePopup = function () {
             $scope.popup = false;
@@ -165,6 +188,7 @@ appControllers
             $scope.qabtPopup = false;
             $scope.questionnairePopup = false;
             $scope.advicePopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideReportPopup = function () {
             $scope.popup = false;
@@ -179,6 +203,7 @@ appControllers
             $scope.commentPopup = false;
             $scope.questionnairePopup = false;
             $scope.advicePopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideQabtPopup = function () {
             $scope.popup = false;
@@ -193,6 +218,7 @@ appControllers
             $scope.qabtPopup = false;
             $scope.commentPopup = false;
             $scope.advicePopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideQuestionnairePopup = function () {
             $scope.popup = false;
@@ -207,10 +233,38 @@ appControllers
             $scope.qabtPopup = false;
             $scope.questionnairePopup = false;
             $scope.commentPopup = false;
+            $scope.tagPopup = false;
         };
         $scope.hideAdvicePopup = function () {
             $scope.popup = false;
             $scope.advicePopup = false;
+        }; 
+        $scope.showTagPopup = function () {
+            $scope.popup = true;
+            $scope.tagPopup = true;
+            $scope.advicePopup = false;
+            $scope.sharePopup = false;
+            $scope.routePopup = false;
+            $scope.reportPopup = false;
+            $scope.qabtPopup = false;
+            $scope.questionnairePopup = false;
+            $scope.commentPopup = false;
+        };
+        $scope.hideTagPopup = function () {
+            $scope.popup = false;
+            $scope.tagPopup = false;
+        }; 
+        $scope.addTagType1 = function () {
+            $scope.tagType = "景观类型";           
+            $scope.showTagPopup();
+        }; 
+        $scope.addTagType2 = function () {
+            $scope.tagType = "活动类型";          
+            $scope.showTagPopup();
+        }; 
+        $scope.addTagType3 = function () {
+            $scope.tagType = "建议";            
+            $scope.showTagPopup();
         }; 
 
         $scope.commitComment = function () {
@@ -251,4 +305,26 @@ appControllers
         $scope.flipLike = function () {
             $scope.isLike = !$scope.isLike;
         };
-});
+    })
+
+    .controller("TagCtrl", function ($scope) {
+        $scope.tag1 = "历史";
+        $scope.tagCnt1 = 10;
+        $scope.tag2 = "文化";
+        $scope.tagCnt2 = 20;
+        $scope.isTag1Clicked = false;
+
+        // 显示/隐藏搜索历史
+        $scope.addTagCnt = function (tag) {
+            if (tag == "历史") {
+                $scope.tagCnt1++;
+                $scope.isTag1Clicked = true;
+            }
+            else
+                $scope.tagCnt2++;
+        };
+
+        $scope.commitTag = function () {
+            // 添加tag
+        };
+    });

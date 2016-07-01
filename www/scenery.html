@@ -50,7 +50,7 @@
                     </div>
 
                     <div id="scenery-outer-container">
-                        <div id="prop-ctrl"><div id="prop-ctrl-rec"></div></div>
+                        <div id="scenery-prop-ctrl"><div id="prop-ctrl-rec"></div></div>
                         <!-- Tourist attraction list -->
                         <ion-scroll direction="y" id="scenery-scroll">
                             <div class="list" id="scenery-inner-container">
@@ -83,58 +83,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="scenery-info-left-container">
+                                    <div id="scenery-info-left-container" ng-controller="TagCtrl">
                                         <!--<div id="scenery-addr-container">
                                             <div id="scenery-addr-title">地址:</div>
                                             <div id="scenery-addr">上海市黄浦区人民大道201号</div>
                                         </div>-->
                                         <div class="scenery-tag-container" id="scenery-tag-container-1">
-                                            <p>景观类型：</p>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">历史</div>
-                                                <div class="scenery-tag-cnt">100</div>
+                                            <p class="scenery-tag-popup-text">景观类型：</p>
+                                            <button class="bt-scenery-tag" ng-disabled="isTag1Clicked" ng-click="addTagCnt(tag1)">
+                                                <div class="scenery-tag">{{tag1}}</div>
+                                                <div class="scenery-tag-cnt">{{tagCnt1}}</div>
                                             </button>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">文化</div>
-                                                <div class="scenery-tag-cnt">80</div>
-                                            </button>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">人文景观</div>
-                                                <div class="scenery-tag-cnt">9</div>
-                                            </button>
-                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-1">+</button>
+                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-1" ng-click="addTagType1()">+</button>
                                         </div>
                                         <div class="scenery-tag-container" id="scenery-tag-container-2">
-                                            <p>活动类型：</p>
+                                            <p class="scenery-tag-popup-text">活动类型：</p>
                                             <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">历史</div>
+                                                <div class="scenery-tag">学习</div>
                                                 <div class="scenery-tag-cnt">100</div>
                                             </button>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">文化</div>
-                                                <div class="scenery-tag-cnt">80</div>
-                                            </button>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">人文景观</div>
-                                                <div class="scenery-tag-cnt">9</div>
-                                            </button>
-                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-2">+</button>
+                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-2" ng-click="addTagType2()">+</button>
                                         </div>
                                         <div class="scenery-tag-container" id="scenery-tag-container-3">
-                                            <p>建议：</p>
+                                            <p class="scenery-tag-popup-text">建议：</p>
                                             <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">历史</div>
-                                                <div class="scenery-tag-cnt">100</div>
+                                                <div class="scenery-tag">门票降价</div>
+                                                <div class="scenery-tag-cnt">10</div>
                                             </button>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">文化</div>
-                                                <div class="scenery-tag-cnt">80</div>
-                                            </button>
-                                            <button class="bt-scenery-tag">
-                                                <div class="scenery-tag">人文景观</div>
-                                                <div class="scenery-tag-cnt">9</div>
-                                            </button>
-                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-3">+</button>
+                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-3" ng-click="addTagType3()">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -201,26 +177,26 @@
                     <!-- Add comment popup -->
                     <ion-content class="scenery-popup" id="scenery-add-comment-popup" scroll="false" ng-show="commentPopup">
                         <div class="scenery-popup-title" id="scenery-add-comment-popup-title">添加评价</div>
-                        <div class="scenery-popup-container" id="scenery-add-comment-rating-container">
-                            <p class="scenery-add-comment-text scenery-popup-text">评分</p>
-                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-1"></i>
-                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-2"></i>
-                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-3"></i>
-                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-4"></i>
-                            <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-5"></i>                   
-                        </div>
-                        <div class="scenery-popup-container" id="scenery-add-comment-comment-container">
-                           <p class="scenery-add-comment-text scenery-popup-text">评论</p>
-                           <textarea id="scenery-add-comment-comment-input"></textarea>
-                        </div>
-                        <div class="scenery-popup-container" id="scenery-add-comment-file-container">
-                            <p class="scenery-add-comment-text scenery-popup-text">素材</p>
-                            <input type="file" multiple id="scenery-add-file"></button>
-                        </div>                
-                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-add-comment-button-container">
-                            <button class="bt-popup-commit" id="bt-scenery-add-comment-commit" ng-click="commitComment()">提交</button>
-                            <button class="bt-popup-cancel" id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()">取消</button>
-                        </div>
+                        <form action="/file_upload" id="comment-form">
+                            <div class="scenery-popup-container" id="scenery-add-comment-rating-container">
+                                <p class="scenery-add-comment-text scenery-popup-text">评分</p>
+                                <span class="scenery-rating-label">1</span>
+                                <input type="range" name="rating" id="scenery-add-comment-rating-input" />
+                                <span class="scenery-rating-label">5</span>               
+                            </div>
+                            <div class="scenery-popup-container" id="scenery-add-comment-comment-container">
+                               <p class="scenery-add-comment-text scenery-popup-text">评论</p>
+                               <textarea form="comment-form" id="scenery-add-comment-comment-input"></textarea>
+                            </div>
+                            <div class="scenery-popup-container" id="scenery-add-comment-file-container">
+                                <p class="scenery-add-comment-text scenery-popup-text">素材</p>
+                                <input type="file" multiple id="scenery-add-file" />
+                            </div>                
+                            <div class="scenery-popup-container scenery-popup-button-container" id="scenery-add-comment-button-container">
+                                <button class="bt-popup-commit" id="bt-scenery-add-comment-commit" ng-click="commitComment()">提交</button>
+                                <button class="bt-popup-cancel" id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()">取消</button>
+                            </div>
+                        </form>
                     </ion-content>
                     <!-- Route popup -->
                     <ion-content class="scenery-popup" id="scenery-route-popup" scroll="false" ng-show="routePopup">
@@ -299,6 +275,17 @@
                             <button class="bt-popup-cancel" id="bt-scenery-advice-cancel" ng-click="hideAdvicePopup()">取消</button>
                         </div>
                     </ion-content>
+                    <!-- Add tag popup -->
+                    <ion-content class="scenery-popup" id="scenery-tag-popup" scroll="false" ng-show="tagPopup">
+                        <div class="scenery-popup-title" id="scenery-tag-popup-title">添加{{tagType}}标签</div>
+                        <input type="text" id="scenery-tag-input"/>                  
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-tag-button-container">
+                            <button class="bt-popup-commit" id="bt-scenery-tag-commit" ng-click="commitTag()">确定</button>
+                            <button class="bt-popup-cancel" id="bt-scenery-tag-cancel" ng-click="hideTagPopup()">取消</button>
+                        </div>
+                    </ion-content>
+
+                    <!-- Footer -->
                     <div class="bar bar-footer">
                         <button class="bt-scenery-footer" id="bt-scenery-add-wishlist" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]" ng-click="flipWishlist()">
                             <i class="ion-clipboard scenery-footer-icon" id="scenery-add-wishlist-icon" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]"></i>

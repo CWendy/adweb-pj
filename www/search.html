@@ -52,12 +52,12 @@
                             </ion-content>
                         </ion-view>
                         <!-- Filter panel -->
-                        <div class="list" id="filter-panel">
+                        <div class="list" id="filter-panel" ng-controller="FilterCtrl">
                             <div class="item filter-item ion-funnel" id="filter-icon"></div>
-                            <div class="item filter-item ion-android-image" id="filter-1"></div>
-                            <div class="item filter-item ion-university" id="filter-2"></div>
-                            <div class="item filter-item ion-ios-book" id="filter-3"></div>
-                            <div class="item filter-item ion-ios-arrow-back" id="filter-expand-button"></div>
+                            <div class="item filter-item ion-android-image" id="filter-1" ng-class="{true: 'filter-on', false: 'filter-off'}[isFilter1On]" ng-click="flipFilter1()"></div>
+                            <div class="item filter-item ion-university" id="filter-2" ng-class="{true: 'filter-on', false: 'filter-off'}[isFilter2On]" ng-click="flipFilter2()"></div>
+                            <div class="item filter-item ion-ios-book" id="filter-3" ng-class="{true: 'filter-on', false: 'filter-off'}[isFilter3On]" ng-click="flipFilter3()"></div>
+                            <div class="item filter-item" id="filter-expand-button"></div>
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@
                         <!-- Sort by option -->
                         <div class="list" id="sort-menu">
                             <div class="item sort-item item-icon-right" id="current-sort-container" ng-click="showSortMenu()">
-                                <span id="current-sort" ng-model="sortMetric">{{ sortMetric }}</span>
+                                <span id="current-sort">{{ sortMetric }}</span>
                                 <i class="icon ion-ios-arrow-down" id="sort-expand-icon"></i>
                             </div>
                             <div id="sort-item-container" ng-show="isSortMenuShown">

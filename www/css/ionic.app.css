@@ -9876,25 +9876,41 @@ textarea {
 
 #filter-panel {
   float: right;
-  margin-right: 3%;
-  width: 22px;
-  margin-top: 2%; }
+  margin-right: 12px;
+  width: 26px;
+  margin-top: 40px; }
 
 .filter-item {
-  padding: 2px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   border: 0px;
   text-align: center;
+  font-size: 150%; }
+
+#filter-1 {
+  padding-top: 4px; }
+
+#filter-3 {
+  padding-bottom: 4px; }
+
+.filter-on {
+  color: #ffc900; }
+
+.filter-off {
   color: #ddd; }
 
 #filter-icon, #filter-expand-button {
+  font-size: 130%;
   background-color: #ffc900;
   color: #fff;
-  padding-top: 2px;
-  padding-bottom: 2px; }
+  padding-top: 4px;
+  padding-bottom: 4px; }
 
-#prop-ctrl {
+#filter-expand-button {
+  font-size: 160%; }
+
+#prop-ctrl, #scenery-prop-ctrl {
   text-align: center;
   background-color: #ffc900;
   line-height: 16px;
@@ -9914,7 +9930,7 @@ textarea {
 #sort-menu {
   width: 80px;
   height: 12%;
-  min-height: 30px;
+  min-height: 32px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0px;
@@ -10327,10 +10343,11 @@ button#bt-scenery-comment-more {
   float: left;
   margin-left: 12px; }
 
-.scenery-add-rating-star {
-  font-size: 140%;
-  color: #ffc900;
-  margin-right: -1px; }
+span.scenery-rating-label {
+  margin-left: 2px;
+  margin-right: 2px;
+  position: relative;
+  top: -5px; }
 
 #scenery-add-comment-comment-input {
   float: left;
@@ -10448,6 +10465,22 @@ textarea.scenery-questionnaire-textarea {
   margin-bottom: 12px;
   margin-left: auto;
   margin-right: auto; }
+
+#scenery-tag-popup {
+  height: 115px; }
+
+p.scenery-tag-popup-text {
+  color: #444; }
+
+#scenery-tag-input {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #eee;
+  height: 24px;
+  margin-bottom: 10px;
+  width: 84%;
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
+  font-size: 90%; }
 
 /* Styles for login.html */
 #login-content {
