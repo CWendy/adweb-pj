@@ -9897,9 +9897,19 @@ textarea {
 #prop-ctrl {
   text-align: center;
   background-color: #ffc900;
+  line-height: 16px;
   color: #fff;
-  height: 7%;
-  min-height: 20px; }
+  height: 16px; }
+
+#prop-ctrl-rec {
+  background-color: #fff;
+  width: 11%;
+  height: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 6px;
+  border-radius: 5px; }
 
 #sort-menu {
   width: 80px;
@@ -10016,6 +10026,9 @@ span#current-sort {
   font-size: 125%;
   z-index: 233;
   text-align: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10px;
   margin-bottom: 12px; }
 
@@ -10043,14 +10056,6 @@ span#current-sort {
 
 #scenery-outer-container {
   height: 60%; }
-
-#scenery-prop-ctrl {
-  text-align: center;
-  background-color: #ffc900;
-  color: #fff;
-  height: 7%;
-  min-height: 20px;
-  z-index: 100; }
 
 #scenery-inner-container {
   min-height: 350px; }
@@ -10095,12 +10100,11 @@ span#current-sort {
 span#scenery-price {
   margin-right: 1px; }
 
-#scenery-tag-container {
+.scenery-tag-container {
   float: left;
-  margin-top: 10px;
   margin-bottom: 10px; }
 
-button.bt-scenery-tag {
+button.bt-scenery-tag, .bt-scenery-add-tag {
   font-size: 80%;
   color: #fff;
   padding: 0px;
@@ -10109,6 +10113,13 @@ button.bt-scenery-tag {
   padding-left: 4px;
   padding-right: 4px;
   margin-bottom: 3px; }
+
+.bt-scenery-add-tag {
+  font-size: 100%;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px; }
 
 .scenery-tag {
   height: 20px;
@@ -10374,14 +10385,15 @@ button#bt-scenery-comment-more {
   font-size: 90%; }
 
 #scenery-report-popup {
-  height: 200px; }
+  height: 206px; }
 
 #scenery-report-input {
-  width: 80%;
+  width: 84%;
   height: 105px;
   border: 1px solid #ddd;
   padding-left: 3px;
   padding-right: 3px;
+  margin-top: 16px;
   margin-bottom: 12px;
   margin-left: auto;
   margin-right: auto; }
@@ -10394,6 +10406,48 @@ button#bt-scenery-comment-more {
 
 #scenery-share-button-container {
   width: 60px; }
+
+#scenery-qabt-popup {
+  height: 152px; }
+
+#bt-scenery-qabt-questionnaire, #bt-scenery-qabt-advice {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 9px; }
+
+p.scenery-questionnaire-text {
+  margin-left: 8%;
+  margin-bottom: 5px;
+  margin-top: 15px; }
+
+#scenery-questionnaire-button-container {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+textarea.scenery-questionnaire-textarea {
+  width: 84%;
+  margin-left: 8%;
+  height: 70px;
+  border: 1px solid #ddd;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 8px; }
+
+#scenery-advice-popup {
+  height: 206px; }
+
+#scenery-advice-input {
+  width: 84%;
+  height: 105px;
+  border: 1px solid #ddd;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto; }
 
 /* Styles for login.html */
 #login-content {

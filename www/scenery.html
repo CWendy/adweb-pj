@@ -31,8 +31,8 @@
         <ion-side-menus>
             <ion-side-menu-content ng-controller="SceneryInfoCtrl">
                 <!-- Header -->
-                <div class="bar bar-header bar-energized" id="header">
-                    <button class="button icon button-clear ion-ios-arrow-left"></button>
+                <div class="bar bar-header bar-energized" id="header" ng-controller="HeaderCtrl">
+                    <button class="button icon button-clear ion-ios-arrow-left" ng-click="goBack()"></button>
                     <button class="button icon button-clear ion-navicon" menu-toggle="right"></button>
                 </div>
 
@@ -50,7 +50,7 @@
                     </div>
 
                     <div id="scenery-outer-container">
-                        <div id="scenery-prop-ctrl">拖动调整页面比例</div>
+                        <div id="prop-ctrl"><div id="prop-ctrl-rec"></div></div>
                         <!-- Tourist attraction list -->
                         <ion-scroll direction="y" id="scenery-scroll">
                             <div class="list" id="scenery-inner-container">
@@ -84,11 +84,12 @@
                                         </div>
                                     </div>
                                     <div id="scenery-info-left-container">
-                                        <div id="scenery-addr-container">
+                                        <!--<div id="scenery-addr-container">
                                             <div id="scenery-addr-title">地址:</div>
                                             <div id="scenery-addr">上海市黄浦区人民大道201号</div>
-                                        </div>
-                                        <div id="scenery-tag-container">
+                                        </div>-->
+                                        <div class="scenery-tag-container" id="scenery-tag-container-1">
+                                            <p>景观类型：</p>
                                             <button class="bt-scenery-tag">
                                                 <div class="scenery-tag">历史</div>
                                                 <div class="scenery-tag-cnt">100</div>
@@ -101,6 +102,39 @@
                                                 <div class="scenery-tag">人文景观</div>
                                                 <div class="scenery-tag-cnt">9</div>
                                             </button>
+                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-1">+</button>
+                                        </div>
+                                        <div class="scenery-tag-container" id="scenery-tag-container-2">
+                                            <p>活动类型：</p>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">历史</div>
+                                                <div class="scenery-tag-cnt">100</div>
+                                            </button>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">文化</div>
+                                                <div class="scenery-tag-cnt">80</div>
+                                            </button>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">人文景观</div>
+                                                <div class="scenery-tag-cnt">9</div>
+                                            </button>
+                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-2">+</button>
+                                        </div>
+                                        <div class="scenery-tag-container" id="scenery-tag-container-3">
+                                            <p>建议：</p>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">历史</div>
+                                                <div class="scenery-tag-cnt">100</div>
+                                            </button>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">文化</div>
+                                                <div class="scenery-tag-cnt">80</div>
+                                            </button>
+                                            <button class="bt-scenery-tag">
+                                                <div class="scenery-tag">人文景观</div>
+                                                <div class="scenery-tag-cnt">9</div>
+                                            </button>
+                                            <button class="bt-scenery-add-tag" id="bt-scenery-add-tag-3">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -224,6 +258,46 @@
                         <div class="scenery-popup-container scenery-popup-button-container" id="scenery-share-button-container">
                             <button class="bt-popup-cancel" id="bt-scenery-share-cancel" ng-click="hideSharePopup()">取消</button>
                         </div>            
+                    </ion-content>
+                    <!-- Questionnaire & advice button popup -->
+                    <ion-content class="scenery-popup" id="scenery-qabt-popup" scroll="false" ng-show="qabtPopup">
+                        <div class="scenery-popup-title" id="scenery-qabt-popup-title">感谢您的评价！</div>
+                        <button class="bt-popup-commit" id="bt-scenery-qabt-questionnaire" ng-click="showQuestionnairePopup()">填写调查问卷</button>
+                        <button class="bt-popup-commit" id="bt-scenery-qabt-advice" ng-click="showAdvicePopup()">填写建议</button>
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-share-button-container">
+                            <button class="bt-popup-cancel" id="bt-scenery-share-cancel" ng-click="hideQabtPopup()">取消</button>
+                        </div>            
+                    </ion-content>
+                    <!-- Report popup -->
+                    <ion-content class="scenery-popup" id="scenery-questionnaire-popup" scroll="true" ng-show="questionnairePopup">
+                        <div class="scenery-popup-title" id="scenery-questionnaire-popup-title">调查问卷</div>
+                        <div class="scenery-popup-container" id="scenery-questionnaire-container-1">
+                            <p class="scenery-questionnaire-text">1. PJ写完了吗？</p>
+                            <textarea class="scenery-questionnaire-textarea" id="scenery-questionnaire-input-1"></textarea>                 
+                        </div> 
+                        <div class="scenery-popup-container" id="scenery-questionnaire-container-2">
+                            <p class="scenery-questionnaire-text">2. PJ写得开心吗？</p>
+                            <textarea class="scenery-questionnaire-textarea" id="scenery-questionnaire-input-2"></textarea>                 
+                        </div>
+                        <div class="scenery-popup-container" id="scenery-questionnaire-container-3">
+                            <p class="scenery-questionnaire-text">3. 强迫症治好了吗？</p>
+                            <textarea class="scenery-questionnaire-textarea" id="scenery-questionnaire-input-3"></textarea>                 
+                        </div> 
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-questionnaire-button-container">
+                            <button class="bt-popup-commit" id="bt-scenery-questionnaire-commit" ng-click="commitQuestionnaire()">提交</button>
+                            <button class="bt-popup-cancel" id="bt-scenery-questionnaire-cancel" ng-click="hideQuestionnairePopup()">取消</button>
+                        </div>
+                    </ion-content>
+                    <!-- Advice popup -->
+                    <ion-content class="scenery-popup" id="scenery-advice-popup" scroll="false" ng-show="advicePopup">
+                        <div class="scenery-popup-title" id="scenery-advice-popup-title">建议</div>
+                        <div class="scenery-popup-container" id="scenery-advice-container">
+                            <textarea id="scenery-advice-input"></textarea>                 
+                        </div>              
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-advice-button-container">
+                            <button class="bt-popup-commit" id="bt-scenery-advice-commit" ng-click="commitAdvice()">提交</button>
+                            <button class="bt-popup-cancel" id="bt-scenery-advice-cancel" ng-click="hideAdvicePopup()">取消</button>
+                        </div>
                     </ion-content>
                     <div class="bar bar-footer">
                         <button class="bt-scenery-footer" id="bt-scenery-add-wishlist" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]" ng-click="flipWishlist()">
