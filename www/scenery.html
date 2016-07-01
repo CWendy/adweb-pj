@@ -44,7 +44,7 @@
                     <div id="scenery-map-panel">
                         <ion-view view-title = "BDMap" id="map" class="scenery-map">
                             <ion-content>
-                                <app-map style="height:400px;margin:0px;" address={{address}}></app-map>
+                                <app-map style="height:100%;margin:0px;" address={{address}}></app-map>
                             </ion-content>
                         </ion-view>
                     </div>
@@ -162,29 +162,68 @@
                     </div>
                 </div>
                 <div>
-                    <div class="bar" id="scenery-popup-bg" ng-show="commentPopup"></div>
-                    <ion-content id="scenery-add-comment-popup" scroll="false" ng-show="commentPopup">
-                        <div id="scenery-add-comment-popup-title">添加评价</div>
-                        <div id="scenery-add-comment-rating-container">
-                            <p class="scenery-add-comment-text">评分</p>
+                    <!-- Popup background -->
+                    <div class="bar" id="scenery-popup-bg" ng-show="popup"></div>
+                    <!-- Add comment popup -->
+                    <ion-content class="scenery-popup" id="scenery-add-comment-popup" scroll="false" ng-show="commentPopup">
+                        <div class="scenery-popup-title" id="scenery-add-comment-popup-title">添加评价</div>
+                        <div class="scenery-popup-container" id="scenery-add-comment-rating-container">
+                            <p class="scenery-add-comment-text scenery-popup-text">评分</p>
                             <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-1"></i>
                             <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-2"></i>
                             <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-3"></i>
                             <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-4"></i>
                             <i class="icon ion-ios-star-outline scenery-add-rating-star" id="scenery-add-rating-star-5"></i>                   
                         </div>
-                        <div id="scenery-add-comment-comment-container">
-                           <p class="scenery-add-comment-text">评论</p>
+                        <div class="scenery-popup-container" id="scenery-add-comment-comment-container">
+                           <p class="scenery-add-comment-text scenery-popup-text">评论</p>
                            <textarea id="scenery-add-comment-comment-input"></textarea>
                         </div>
-                        <div id="scenery-add-comment-file-container">
-                            <p class="scenery-add-comment-text">素材</p>
+                        <div class="scenery-popup-container" id="scenery-add-comment-file-container">
+                            <p class="scenery-add-comment-text scenery-popup-text">素材</p>
                             <input type="file" multiple id="scenery-add-file"></button>
                         </div>                
-                        <div id="scenery-add-comment-button-container">
-                            <button id="bt-scenery-add-comment-commit">提交</button>
-                            <button id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()">取消</button>
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-add-comment-button-container">
+                            <button class="bt-popup-commit" id="bt-scenery-add-comment-commit" ng-click="commitComment()">提交</button>
+                            <button class="bt-popup-cancel" id="bt-scenery-add-comment-cancel" ng-click="hideCommentPopup()">取消</button>
                         </div>
+                    </ion-content>
+                    <!-- Route popup -->
+                    <ion-content class="scenery-popup" id="scenery-route-popup" scroll="false" ng-show="routePopup">
+                        <div class="scenery-popup-title" id="scenery-route-popup-title">查询路线</div>
+                        <div class="scenery-popup-container" id="scenery-route-start-container">
+                            <p class="scenery-route-text scenery-popup-text">起点</p>
+                            <input type="text" id="scenery-route-start-input"/>                  
+                        </div>
+                        <div class="scenery-popup-container" id="scenery-route-end-container">
+                           <p class="scenery-route-text scenery-popup-text">终点</p>
+                           <input type="text" id="scenery-route-end-input"/>
+                        </div>               
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-route-button-container">
+                            <button class="bt-popup-commit" id="bt-scenery-route-commit" ng-click="commitRoute()">确定</button>
+                            <button class="bt-popup-cancel" id="bt-scenery-route-cancel" ng-click="hideRoutePopup()">取消</button>
+                        </div>
+                    </ion-content>
+                    <!-- Report popup -->
+                    <ion-content class="scenery-popup" id="scenery-report-popup" scroll="false" ng-show="reportPopup">
+                        <div class="scenery-popup-title" id="scenery-report-popup-title">报错</div>
+                        <div class="scenery-popup-container" id="scenery-report-container">
+                            <textarea id="scenery-report-input"></textarea>                 
+                        </div>              
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-report-button-container">
+                            <button class="bt-popup-commit" id="bt-scenery-report-commit" ng-click="commitReport()">提交</button>
+                            <button class="bt-popup-cancel" id="bt-scenery-report-cancel" ng-click="hideReportPopup()">取消</button>
+                        </div>
+                    </ion-content>
+                    <!-- Share popup -->
+                    <ion-content class="scenery-popup" id="scenery-share-popup" scroll="false" ng-show="sharePopup">
+                        <div class="scenery-popup-title" id="scenery-share-popup-title">分享到</div>
+                        <div class="scenery-popup-container" id="scenery-share-share-button-container">
+                            <!-- 添加各第三方平台的分享按钮 -->
+                        </div>
+                        <div class="scenery-popup-container scenery-popup-button-container" id="scenery-share-button-container">
+                            <button class="bt-popup-cancel" id="bt-scenery-share-cancel" ng-click="hideSharePopup()">取消</button>
+                        </div>            
                     </ion-content>
                     <div class="bar bar-footer">
                         <button class="bt-scenery-footer" id="bt-scenery-add-wishlist" ng-class="{true: 'bt-clicked', false: 'bt-unclicked'}[isWishlist]" ng-click="flipWishlist()">
@@ -203,15 +242,15 @@
                             <i class="ion-compose scenery-footer-icon" id="scenery-add-comment-icon"></i>
                             <p class="scenery-footer-text" id="scenery-add-comment-text">评价</p>
                         </button>
-                        <button class="bt-scenery-footer" id="bt-scenery-share">
+                        <button class="bt-scenery-footer" id="bt-scenery-share" ng-click="showSharePopup()">
                             <i class="ion-share scenery-footer-icon" id="scenery-share-icon"></i>
                             <p class="scenery-footer-text" id="scenery-share-text">分享</p>
                         </button>
-                        <button class="bt-scenery-footer" id="bt-scenery-route">
+                        <button class="bt-scenery-footer" id="bt-scenery-route" ng-click="showRoutePopup()">
                             <i class="ion-android-navigate scenery-footer-icon" id="scenery-route-icon"></i>
                             <p class="scenery-footer-text" id="scenery-route-text">路线</p>
                         </button>
-                        <button class="bt-scenery-footer" id="bt-scenery-report">
+                        <button class="bt-scenery-footer" id="bt-scenery-report" ng-click="showReportPopup()">
                             <i class="ion-android-alert scenery-footer-icon" id="scenery-report-icon"></i>
                             <p class="scenery-footer-text" id="scenery-report-text">报错</p>
                         </button>

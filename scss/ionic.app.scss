@@ -589,7 +589,7 @@ button#bt-scenery-comment-more {
 	top: 0px;
 }
 
-#scenery-add-comment-popup {
+.scenery-popup {
 	width: 80%;
 	height: 234px;
 	background-color: #fff;
@@ -597,19 +597,19 @@ button#bt-scenery-comment-more {
 	background-image: none !important;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 100px;
+	margin-top: 110px;
 	border: 1px solid $energized;
 	padding: 0px;
 }
 
- #scenery-add-comment-rating-container, #scenery-add-comment-comment-container, #scenery-add-comment-file-container{
+.scenery-popup-container {
 	clear: both;
 	width: 100%;
 	background-color: #fff;
 	z-index: 1000;
 }
 
-#scenery-add-comment-popup-title {
+.scenery-popup-title {
 	width: 100%;
 	text-align: center;
 	margin-bottom: 10px;
@@ -620,10 +620,10 @@ button#bt-scenery-comment-more {
 	font-size: 110%;
 }
 
-.scenery-add-comment-text {
+.scenery-popup-text {
 	width: 15%;
 	float: left;
-	margin-left: 15px;
+	margin-left: 12px;
 }
 
 .scenery-add-rating-star {
@@ -649,13 +649,17 @@ button#bt-scenery-comment-more {
 	margin-bottom: 8px;	
 }
 
-#scenery-add-comment-button-container {
+.scenery-popup-button-container {
 	width: 130px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#bt-scenery-add-comment-commit {
+#scenery-route-button-container {
+	margin-top: 13px;
+}
+
+.bt-popup-commit {
 	background-color: $energized;
 	color: #fff;
 	border: 0px;
@@ -664,12 +668,55 @@ button#bt-scenery-comment-more {
 	margin-right: 5px;
 }
 
-#bt-scenery-add-comment-cancel {
+.bt-popup-cancel {
 	background-color: #fff;
 	color: $energized;
 	border: 1px solid $energized;
 	width: 60px;
 	height: 27px;
+}
+
+#scenery-route-popup {
+	height: 155px;
+}
+
+#scenery-route-start-input, #scenery-route-end-input {
+	width: 70%;
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	padding: 0px;
+	padding-left: 3px;
+	padding-right: 3px;	
+	height: 25px;
+	font-family: $font-for-browser;
+	font-size: 90%;
+}
+
+#scenery-report-popup {
+	height: 200px;
+}
+
+#scenery-report-input {
+	width: 80%;
+	height: 105px;
+	border: 1px solid #ddd;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-bottom: 12px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#scenery-share-popup {
+	height: 146px;
+}
+
+#scenery-share-share-button-container {
+	height: 65px;
+}
+
+#scenery-share-button-container {
+	width: 60px;
 }
 
 /* Styles for login.html */
