@@ -231,8 +231,10 @@ appControllers
 
 
 
-
+        // 展开/收起景观详细介绍
         $scope.isExpanded = false;
+        $scope.btText = "展开详细介绍";
+
         $scope.popup = false;
         $scope.commentPopup = false;
         $scope.sharePopup = false;
@@ -249,7 +251,11 @@ appControllers
         $scope.isLike = false;
 
         $scope.expandIntro = function () {
-            $scope.isExpanded = true;
+            $scope.isExpanded = !($scope.isExpanded);
+            if ($scope.isExpanded)
+                $scope.btText = "收起详细介绍";
+            else
+                $scope.btText = "展开详细介绍"; 
         };
 
         $scope.showCommentPopup = function () {
@@ -537,4 +543,7 @@ appControllers
         $scope.commitTag = function () {
             // 添加tag
         };
+    })
+
+    .controller("RouteCtrl", function ($scope) {
     });

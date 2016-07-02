@@ -106,3 +106,63 @@ appDirectives.directive('appMapScenery', function() {
         }
     };
 });
+
+appDirectives.directive('appMapRoute', function() {
+    return {
+        restrict: "E",
+        replace: true,
+        template: "<div id='allMap'></div>",
+        scope: {
+            center: "=",
+            markers: "=",
+            width: "@",
+            height: "@",
+            zoom: "@",
+            zoomControl: "@",
+            scaleControl: "@",
+            address: "@"
+        },
+        link: function (scope, element, attrs) {
+            var map;
+            map = new BMap.Map("allMap");
+            //map.addControl( new BMap.ZoomControl() );
+            var point = new BMap.Point(124, 41);
+            map.centerAndZoom(point,15);
+
+            map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+            map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+
+        }
+    };
+});
+
+appDirectives.directive('appMapRoutePlanning', function() {
+    return {
+        restrict: "E",
+        replace: true,
+        template: "<div id='allMap'></div>",
+        scope: {
+            center: "=",
+            markers: "=",
+            width: "@",
+            height: "@",
+            zoom: "@",
+            zoomControl: "@",
+            scaleControl: "@",
+            address: "@"
+        },
+        link: function (scope, element, attrs) {
+            var map;
+            map = new BMap.Map("allMap");
+            //map.addControl( new BMap.ZoomControl() );
+            var point = new BMap.Point(124, 41);
+            map.centerAndZoom(point,15);
+
+            map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+            map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+        }
+    };
+});
+

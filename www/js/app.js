@@ -27,6 +27,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
     $('#scenery-outer-container').draggable({ axis: "y", containment: "parent", handle: "#scenery-prop-ctrl", drag: function(event, ui) {
       $('#scenery-scroll').height((200 - ui.position.top) + "px");
     }});
+    $('#route-outer-container').draggable({ axis: "y", containment: "parent", handle: "#route-prop-ctrl", drag: function(event, ui) {
+      $('#route-scroll').height((200 - ui.position.top) + "px");
+    }});
   });
 })
 

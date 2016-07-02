@@ -9913,7 +9913,7 @@ textarea {
 #filter-expand-button {
   font-size: 160%; }
 
-#prop-ctrl, #scenery-prop-ctrl {
+#prop-ctrl, #scenery-prop-ctrl, #route-prop-ctrl {
   text-align: center;
   background-color: #ffc900;
   line-height: 16px;
@@ -10046,7 +10046,7 @@ span#current-sort {
   width: 100%;
   height: 100%; }
 
-#scenery-title {
+#scenery-title, #route-title {
   color: #fff;
   font-size: 125%;
   z-index: 233;
@@ -10129,7 +10129,8 @@ span#scenery-price {
 
 .scenery-tag-container {
   float: left;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  width: 100%; }
 
 button.bt-scenery-tag, .bt-scenery-add-tag {
   font-size: 80%;
@@ -10570,3 +10571,24 @@ p.scenery-tag-popup-text {
   margin-right: auto;
   margin-top: 30px;
   width: 40%; }
+
+/* Styles for route.html */
+#route-content {
+  color: #444;
+  position: absolute;
+  top: 44px;
+  width: 100%;
+  height: 100%; }
+
+#route-map-panel {
+  background-color: #fff;
+  height: 50%;
+  overflow: hidden; }
+
+.route-map {
+  height: 50% !important; }
+
+#route-outer-container {
+  height: 50%;
+  z-index: 9;
+  background-color: #fff; }
