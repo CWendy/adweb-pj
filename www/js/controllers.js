@@ -1,13 +1,62 @@
 var appControllers = angular.module('app.controllers', []);
 
 appControllers
-    .controller("LoginCtrl", function ($scope) {
+    .controller("LoginCtrl", function ($scope,$http) {
         // 登录
         $scope.login = function () {
+            var username = $scope.username;
+            var password = $scope.password;
+            console.log("user:"+username+"password"+password);
+            $http({
+                url:'http://localhost:3000/user/login',
+                method:'GRT',
+                charst:'UTF-8',
+                params:{
+                    'username':username,
+                    'password':password,
+                }
+            }).success(function(response){
+                if(response == -1){
+                    console.log("登录失败");
+                }else{
+                    console.log("用户id"+response);
+                    localStorage.setItem("userID",response);
+                    self.location = "search.html";
+                }
+            });
+
+            // 跳转页面(test用)
+          self.location = "search.html";
+        };
+
+
+        $scope.register = function () {
+            var username = $scope.username;
+            var password = $scope.password;
+            console.log("user:"+username+"password"+password);
+            $http({
+                url:'http://localhost:3000/user/signup',
+                method:'GET',
+                charst:'UTF-8',
+                params:{
+                    'username':username,
+                    'password':password,
+                }
+
+            }).success(function(response){
+                if(response == -1){
+                    console.log("注册失败");
+                }else{
+                    console.log("用户id"+response);
+                    localStorage.setItem("userID",response);
+                    self.location = "search.html";
+                }
+            });
 
             // 跳转页面
-            self.location = "search.html";
+
         };
+
     })  
 
     .controller("HeaderCtrl", function ($scope) {
@@ -17,13 +66,74 @@ appControllers
         };
     })
 
-    .controller("SearchCtrl", function ($scope) {
+    .controller("loadMessage", function ($scope,$http) {
+        // 加载附近景观列表数据
+
+      //获取坐标信息
+        function loadList(){
+            if(localStorage.lng!=null){
+                  //alert(localStorage.lng);
+                console.log(localStorage.scenelist);
+                var s = localStorage.scenelist;
+                var list = JSON.parse(s);
+                console.log(list);
+                //获取附近景观列表
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'scenelist':list,
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                      //存到scope里
+                });
+            }else{
+                alert("timeout");
+            }
+        }
+
+
+    // 倒计时10-0秒，但算上0的话就是11s
+        setTimeout(function() {
+            // Do SomeThing
+            load();
+
+        }, 5000);
+
+
+
+
+
+    })
+
+    .controller("SearchCtrl", function ($scope,$http) {
+
         $scope.isHistoryShown = false;
 
         // 显示/隐藏搜索历史
         $scope.showHistory = function () {
             $scope.isHistoryShown = !$scope.isHistoryShown;
+
         };
+        $scope.search = function(){//根据关键字搜索获得景观列表
+            var keyword = $scope.key;
+            console.log(keyword);
+            $http({
+                url:'http://localhost:3000/',
+                method:'GET',
+                charst:'UTF-8',
+                params:{
+                    'key':keyword,
+                }
+
+            }).success(function(response){//返回的json格式的景观列表
+                //存到scope里
+            });
+
+        };
+
     })
 
     .controller("FilterCtrl", function ($scope) {
@@ -44,7 +154,34 @@ appControllers
         };        
     })
 
-    .controller("SceneryListCtrl", function ($scope) {
+    .controller("SceneryListCtrl", function ($scope, $ionicLoading, $http) {
+        $scope.load = function () {
+            $ionicLoading.show({
+              template: 'Loading...'
+            });
+        }
+        $scope.hide = function (){
+            $ionicLoading.hide();
+        };
+
+        $scope.loadList = function (baiduList) {
+                var jsonBaiduList = JSON.parse(baiduList);
+                //获取附近景观列表
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'scenelist': jsonBaiduList,
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                      $scope.hide();
+                      //存到scope里
+                });
+                $scope.hide();
+        }
+
         // 排序下拉菜单控制
         $scope.isSortMenuShown = false;
         $scope.isSortByRecommend = true; // 智能排序
@@ -108,7 +245,20 @@ appControllers
             $scope.isSortMenuShown = false;
         };
 
-        $scope.jumpToScenery = function () {
+        $scope.jumpToScenery = function () {//获取点击的景观名称返回景观详细信息
+            var name = document.getElementById("scenery-name").innerHTML;
+            $http({
+                url:'http://localhost:3000/',
+                method:'GET',
+                charst:'UTF-8',
+                params:{
+                    'scenename':name,
+                }
+
+            }).success(function(response){//返回的json格式的景观列表
+                //存到scope里
+                //景观id存在rootscope里面sceneID
+            });
             self.location = "scenery.html";
         };
     })
@@ -298,12 +448,104 @@ appControllers
 
         $scope.flipWishlist = function () {
             $scope.isWishlist = !$scope.isWishlist;
+            if($scope.isWishlist){//加入
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'userid':localStorage.getItem("userID"),
+                        'scenename':$rootScope.sceneID,//景观id存在rootscope里面
+                        'type':"wish",
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                    //存到scope里
+                });
+
+            }else{//删除
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'userid':localStorage.getItem("userID"),
+                        'scenename':$rootScope.sceneID,//景观id存在rootscope里面
+                        'type':"wish",
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                    //存到scope里
+                });
+            }
         };
         $scope.flipFootprint = function () {
             $scope.isFootprint = !$scope.isFootprint;
+
+            if($scope.isFootprint){//加入
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'userid':localStorage.getItem("userID"),
+                        'scenename':$rootScope.sceneID,//景观id存在rootscope里面
+                        'type':"foot",
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                    //存到scope里
+                });
+
+            }else{//删除
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'userid':localStorage.getItem("userID"),
+                        'scenename':$rootScope.sceneID,//景观id存在rootscope里面
+                        'type':"foot",
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                    //存到scope里
+                });
+            }
+
         };
         $scope.flipLike = function () {
             $scope.isLike = !$scope.isLike;
+            if($scope.isLike){//加入
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'userid':localStorage.getItem("userID"),
+                        'scenename':$rootScope.sceneID,//景观id存在rootscope里面
+                        'type':"like",
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                    //存到scope里
+                });
+
+            }else{//删除
+                $http({
+                    url:'http://localhost:3000/',
+                    method:'GET',
+                    charst:'UTF-8',
+                    params:{
+                        'userid':localStorage.getItem("userID"),
+                        'scenename':$rootScope.sceneID,//景观id存在rootscope里面
+                        'type':"like",
+                    }
+
+                }).success(function(response){//返回的json格式的景观列表
+                    //存到scope里
+                });
+            }
         };
     })
 

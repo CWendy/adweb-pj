@@ -16,24 +16,64 @@ appDirectives.directive('appMap', function() {
                 address: "@"
             },
             link: function (scope, element, attrs) {
+                scope.$parent.load();
                 var map;
                 map = new BMap.Map("allMap");
                 //map.addControl( new BMap.ZoomControl() );
-                var myGeo = new BMap.Geocoder();
-                myGeo.getPoint("静安寺", function(point) {
-                    if(!point) {
-                        console.log(point);
-                        map.centerAndZoom( (116.404, 39.915), 16);
-                        map.addOverlay( new BMap.Marker(116.404, 39.915) );
-                    }
-                    else {
-                        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
-                        map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
-                    }
-                }, "上海");
+                var point = new BMap.Point(116.331398,39.897445);
+                map.centerAndZoom(point,15);
 
                 map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
                 map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+                var geolocation = new BMap.Geolocation();
+                geolocation.getCurrentPosition(function(r){
+                    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                        var mk = new BMap.Marker(r.point);
+                        point = r.point;
+                        map.addOverlay(mk);
+                        map.panTo(r.point);
+                        //alert('您的位置：'+r.point.lng+','+r.point.lat);
+
+                        localStorage.removeItem("lng");
+                        localStorage.removeItem("lat");
+                        if(localStorage.getItem("lng")!=null){
+                            alert("上次定位过");
+                        }
+
+                        //localStorage.lng = r.point.lng;
+                        //localStorage.lat = r.point.lat;
+
+                        localStorage.setItem("lng", r.point.lng);
+                        localStorage.setItem("lat", r.point.lat);
+
+
+                        var options = {
+                            onSearchComplete: function(results){
+                                // 判断状态是否正确
+                                if (local.getStatus() == BMAP_STATUS_SUCCESS){
+                                    var s = "{\"scenelist\":[";
+                                    for (var i = 0; i < results.getCurrentNumPois()-1; i++){
+                                        //s.push(results.getPoi(i).title);
+                                        s = s + "\""+results.getPoi(i).title+"\""+",";
+                                    }
+                                       s = s + "\""+results.getPoi(i).title+"\""+"]}";
+                                   // document.getElementById("r-result").innerHTML = s.join("<br/>");
+                                    //alert(s);
+                                    scope.$parent.loadList(s);
+                                }
+                            }
+                        };
+                        var local = new BMap.LocalSearch(map, options);
+                        local.search("景点");
+
+                        //
+
+                    }
+                    else {
+                        alert('failed'+this.getStatus());
+                    }
+                },{enableHighAccuracy: true})
             }
         };
     });
