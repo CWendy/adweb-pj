@@ -9834,6 +9834,9 @@ textarea {
 .scroll-bar-indicator {
   display: none; }
 
+.bar-header {
+  z-index: 11; }
+
 /* Styles for index.html */
 #search-bar {
   margin-left: auto;
@@ -10229,11 +10232,9 @@ img.scenery-image {
 
 .scenery-comment-container {
   border-top: 0px;
+  border-bottom: px solid #eee;
   font-size: 100%;
-  margin-bottom: 15px; }
-
-.scenery-comment-time {
-  float: right; }
+  margin-top: 1px; }
 
 .scenery-comment-user-avatar, .scenery-comment-username, .scenery-comment-user-rating, .scenery-comment, .scenery-comment-image-container {
   float: left; }
@@ -10247,9 +10248,12 @@ img.scenery-image {
   margin-left: 10px;
   width: 50%; }
 
-.scenery-comment-user-rating {
+.scenery-comment-time {
+  float: left;
+  font-size: 90%;
   width: 50%;
-  margin-left: 10px; }
+  margin-left: 10px;
+  color: #bbb; }
 
 .scenery-comment {
   clear: both;
@@ -10275,7 +10279,8 @@ button#bt-scenery-comment-more {
   border: 0px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 65px; }
+  margin-bottom: 65px;
+  margin-top: 15px; }
 
 .bar-footer {
   padding: 0px;
@@ -10314,7 +10319,7 @@ button#bt-scenery-comment-more {
   width: 100%;
   height: 100%;
   margin: 0px;
-  z-index: 8;
+  z-index: 9;
   position: absolute;
   top: 0px; }
 

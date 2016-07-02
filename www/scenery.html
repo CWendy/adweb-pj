@@ -47,7 +47,7 @@
                     <div id="scenery-map-panel">
                         <ion-view view-title = "BDMap" id="map" class="scenery-map">
                             <ion-content>
-                                <app-map style="height:100%;margin:0px;" address={{address}}></app-map>
+                                <app-map-scenery style="height:100%;margin:0px;" address={{address}}></app-map-scenery>
                             </ion-content>
                         </ion-view>
                     </div>
@@ -136,16 +136,9 @@
                                 </div>
                                 <div class="item item-divider">网友评论</div>
                                     <div class="item item-text-wrap scenery-comment-container">
-                                        <div class="scenery-comment-time">2016.06.29</div>
                                         <img class="scenery-comment-user-avatar" />
                                         <div class="scenery-comment-username">阿叽米德</div>
-                                        <div class="scenery-comment-user-rating">
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-1"></i>
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-2"></i>
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-3"></i>
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-4"></i>
-                                            <i class="icon ion-android-star-half scenery-rating-star scenery-rating-star-5"></i>
-                                        </div>
+                                        <div class="scenery-comment-time">2016.06.29</div>
                                         <div class="scenery-comment">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
                                         <div class="scenery-comment-image-container">
                                             <img class="scenery-comment-image" />
@@ -153,16 +146,9 @@
                                         <div class="scenery-comment-clear"></div>
                                     </div>
                                     <div class="item item-text-wrap scenery-comment-container">
-                                        <div class="scenery-comment-time">2016.06.29</div>
                                         <img class="scenery-comment-user-avatar" />
                                         <div class="scenery-comment-username">阿叽米德</div>
-                                        <div class="scenery-comment-user-rating">
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-1"></i>
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-2"></i>
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-3"></i>
-                                            <i class="icon ion-android-star scenery-rating-star scenery-rating-star-4"></i>
-                                            <i class="icon ion-android-star-half scenery-rating-star scenery-rating-star-5"></i>
-                                        </div>
+                                        <div class="scenery-comment-time">2016.06.29</div>
                                         <div class="scenery-comment">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
                                         <div class="scenery-comment-image-container">
                                             <img class="scenery-comment-image" />
@@ -183,8 +169,8 @@
                         <form action="/file_upload" id="comment-form">
                             <div class="scenery-popup-container" id="scenery-add-comment-rating-container">
                                 <p class="scenery-add-comment-text scenery-popup-text">评分</p>
-                                <span class="scenery-rating-label">1</span>
-                                <input type="range" name="rating" id="scenery-add-comment-rating-input" />
+                                <span class="scenery-rating-label">0</span>
+                                <input type="range" name="rating" min="0" max="5" id="scenery-add-comment-rating-input" />
                                 <span class="scenery-rating-label">5</span>               
                             </div>
                             <div class="scenery-popup-container" id="scenery-add-comment-comment-container">

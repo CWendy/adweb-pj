@@ -1,6 +1,6 @@
 /* 用于显示、控制地图的控制器 */
 var appDirectives = angular.module('app.directives', []);
-appDirectives.directive('appMap', function() {
+appDirectives.directive('appMapSearch', function() {
         return {
             restrict: "E",
             replace: true,
@@ -41,9 +41,6 @@ appDirectives.directive('appMap', function() {
                             alert("上次定位过");
                         }
 
-                        //localStorage.lng = r.point.lng;
-                        //localStorage.lat = r.point.lat;
-
                         localStorage.setItem("lng", r.point.lng);
                         localStorage.setItem("lat", r.point.lat);
 
@@ -77,3 +74,35 @@ appDirectives.directive('appMap', function() {
             }
         };
     });
+
+appDirectives.directive('appMapScenery', function() {
+    return {
+        restrict: "E",
+        replace: true,
+        template: "<div id='allMap'></div>",
+        scope: {
+            center: "=",
+            markers: "=",
+            width: "@",
+            height: "@",
+            zoom: "@",
+            zoomControl: "@",
+            scaleControl: "@",
+            address: "@"
+        },
+        link: function (scope, element, attrs) {
+            console.log(scope.$parent.lng);
+            //scope.$parent.load();
+            var map;
+            map = new BMap.Map("allMap");
+            //map.addControl( new BMap.ZoomControl() );
+            var point = new BMap.Point(scope.$parent.lng,scope.$parent.lat);
+            map.centerAndZoom(point,15);
+
+            map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+            map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+
+        }
+    };
+});

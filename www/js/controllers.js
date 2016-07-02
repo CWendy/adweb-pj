@@ -66,48 +66,6 @@ appControllers
         };
     })
 
-    .controller("loadMessage", function ($scope,$http) {
-        // 加载附近景观列表数据
-
-      //获取坐标信息
-        function loadList(){
-            if(localStorage.lng!=null){
-                  //alert(localStorage.lng);
-                console.log(localStorage.scenelist);
-                var s = localStorage.scenelist;
-                var list = JSON.parse(s);
-                console.log(list);
-                //获取附近景观列表
-                $http({
-                    url:'http://localhost:3000/',
-                    method:'GET',
-                    charst:'UTF-8',
-                    params:{
-                        'scenelist':list,
-                    }
-
-                }).success(function(response){//返回的json格式的景观列表
-                      //存到scope里
-                });
-            }else{
-                alert("timeout");
-            }
-        }
-
-
-    // 倒计时10-0秒，但算上0的话就是11s
-        setTimeout(function() {
-            // Do SomeThing
-            load();
-
-        }, 5000);
-
-
-
-
-
-    })
-
     .controller("SearchCtrl", function ($scope,$http) {
 
         $scope.isHistoryShown = false;
@@ -166,14 +124,13 @@ appControllers
 
         $scope.loadList = function (baiduList) {
                 var jsonBaiduList = JSON.parse(baiduList);
+               console.log(jsonBaiduList);
                 //获取附近景观列表
                 $http({
                     url:'http://localhost:3000/',
                     method:'GET',
                     charst:'UTF-8',
-                    params:{
-                        'scenelist': jsonBaiduList,
-                    }
+                    params: jsonBaiduList
 
                 }).success(function(response){//返回的json格式的景观列表
                       $scope.hide();
@@ -263,7 +220,18 @@ appControllers
         };
     })
 
-    .controller("SceneryInfoCtrl", function ($scope) {
+    .controller("SceneryInfoCtrl", function ($scope,$rootScope) {
+
+
+        $rootScope.scenelng = 121.615;
+        $rootScope.scenelat = 31.195;
+
+        $scope.lng = $rootScope.scenelng;
+        $scope.lat = $rootScope.scenelat;
+
+
+
+
         $scope.isExpanded = false;
         $scope.popup = false;
         $scope.commentPopup = false;
