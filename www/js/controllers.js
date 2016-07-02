@@ -246,8 +246,6 @@ appControllers
         $scope.lng = $rootScope.scenelng;
         $scope.lat = $rootScope.scenelat;
 
-
-
         // 展开/收起景观详细介绍
         $scope.isExpanded = false;
         $scope.btText = "展开详细介绍";

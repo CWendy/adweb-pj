@@ -10445,10 +10445,13 @@ span.scenery-rating-label {
   width: 60px; }
 
 #scenery-qabt-popup {
-  height: 152px; }
+  height: 189px; }
 
-#bt-scenery-qabt-questionnaire, #bt-scenery-qabt-advice {
-  width: auto;
+.bt-qabt-popup-commit {
+  width: 50%;
+  min-width: 100px; }
+
+#bt-scenery-qabt-questionnaire, #bt-scenery-qabt-advice, #bt-scenery-qabt-report {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -10608,7 +10611,7 @@ p.scenery-tag-popup-text {
   padding-left: 4px;
   padding-bottom: 2px;
   font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
-  font-size: 95%;
+  font-size: 90%;
   margin-left: 2%;
   margin-right: 2%;
   height: 25px; }

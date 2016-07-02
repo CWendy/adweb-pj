@@ -207,7 +207,7 @@
                     <ion-content class="scenery-popup" id="scenery-report-popup" scroll="false" ng-show="reportPopup">
                         <div class="scenery-popup-title" id="scenery-report-popup-title">报错</div>
                         <div class="scenery-popup-container" id="scenery-report-container">
-                            <textarea id="scenery-report-input"></textarea>                 
+                            <textarea id="scenery-report-input" ng-model="reportInfo"></textarea>                 
                         </div>              
                         <div class="scenery-popup-container scenery-popup-button-container" id="scenery-report-button-container">
                             <button class="bt-popup-commit" id="bt-scenery-report-commit" ng-click="commitReport()">提交</button>
@@ -226,9 +226,10 @@
                     </ion-content>
                     <!-- Questionnaire & advice button popup -->
                     <ion-content class="scenery-popup" id="scenery-qabt-popup" scroll="false" ng-show="qabtPopup">
-                        <div class="scenery-popup-title" id="scenery-qabt-popup-title">感谢您的评价！</div>
-                        <button class="bt-popup-commit" id="bt-scenery-qabt-questionnaire" ng-click="showQuestionnairePopup()">填写调查问卷</button>
-                        <button class="bt-popup-commit" id="bt-scenery-qabt-advice" ng-click="showAdvicePopup()">填写建议</button>
+                        <div class="scenery-popup-title" id="scenery-qabt-popup-title">其他</div>
+                        <button class="bt-popup-commit bt-qabt-popup-commit" id="bt-scenery-qabt-questionnaire" ng-click="showQuestionnairePopup()">填写调查问卷</button>
+                        <button class="bt-popup-commit bt-qabt-popup-commit" id="bt-scenery-qabt-advice" ng-click="showAdvicePopup()">填写建议</button>
+                        <button class="bt-popup-commit bt-qabt-popup-commit" id="bt-scenery-qabt-report" ng-click="showReportPopup()">报错</button>
                         <div class="scenery-popup-container scenery-popup-button-container" id="scenery-share-button-container">
                             <button class="bt-popup-cancel" id="bt-scenery-share-cancel" ng-click="hideQabtPopup()">取消</button>
                         </div>            
@@ -300,9 +301,9 @@
                             <i class="ion-android-navigate scenery-footer-icon" id="scenery-route-icon"></i>
                             <p class="scenery-footer-text" id="scenery-route-text">路线</p>
                         </button>
-                        <button class="bt-scenery-footer" id="bt-scenery-report" ng-click="showReportPopup()">
+                        <button class="bt-scenery-footer" id="bt-scenery-report" ng-click="showQabtPopup()">
                             <i class="ion-android-alert scenery-footer-icon" id="scenery-report-icon"></i>
-                            <p class="scenery-footer-text" id="scenery-report-text">报错</p>
+                            <p class="scenery-footer-text" id="scenery-report-text">其他</p>
                         </button>
                     </div>
                 </div>
