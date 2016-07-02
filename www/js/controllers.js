@@ -66,9 +66,23 @@ appControllers
         };
     })
 
-    .controller("SearchCtrl", function ($scope,$http) {
-
+    .controller("SearchCtrl", function ($scope, $http) {
+        $scope.keyword = "";
         $scope.isHistoryShown = false;
+        $scope.searchHistory = new Array(3);
+
+        $scope.readHistory = function() {
+            var sh1, sh2, sh3;
+            if (sh1 = localStorage.getItem("searchHistory1"))
+                $scope.searchHistory[0] = sh1;
+            if (sh2 = localStorage.getItem("searchHistory2"))
+                $scope.searchHistory[1] = sh2;            
+            if (sh3 = localStorage.getItem("searchHistory3"))
+                $scope.searchHistory[2] = sh3; 
+            //console.log($scope.searchHistory); 
+        }
+
+        $scope.readHistory();
 
         // 显示/隐藏搜索历史
         $scope.showHistory = function () {
@@ -76,20 +90,23 @@ appControllers
 
         };
         $scope.search = function(){//根据关键字搜索获得景观列表
-            var keyword = $scope.key;
-            console.log(keyword);
             $http({
                 url:'http://localhost:3000/',
                 method:'GET',
                 charst:'UTF-8',
                 params:{
-                    'key':keyword,
+                    'key': $scope.keyword,
                 }
 
             }).success(function(response){//返回的json格式的景观列表
                 //存到scope里
             });
-
+            // 将关键字存入localStorage
+            localStorage.setItem("searchHistory3", localStorage.getItem("searchHistory2"));
+            localStorage.setItem("searchHistory2", localStorage.getItem("searchHistory1"));
+            localStorage.setItem("searchHistory1", $scope.keyword);
+            $scope.readHistory();
+            $scope.showHistory();
         };
 
     })
@@ -124,7 +141,7 @@ appControllers
 
         $scope.loadList = function (baiduList) {
                 var jsonBaiduList = JSON.parse(baiduList);
-               console.log(jsonBaiduList);
+               //console.log(jsonBaiduList);
                 //获取附近景观列表
                 $http({
                     url:'http://localhost:3000/',
@@ -546,4 +563,7 @@ appControllers
     })
 
     .controller("RouteCtrl", function ($scope) {
+    })
+
+    .controller("RoutePlanningCtrl", function ($scope) {
     });

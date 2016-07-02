@@ -73,6 +73,9 @@ textarea {
 #search-input {
 	padding-right: 0px;
 	padding-left: 4px;
+	padding-bottom: 2px;
+	font-family: $font-for-browser;
+	font-size: 95%;
 }
 
 .search-history {

@@ -9854,7 +9854,10 @@ textarea {
 
 #search-input {
   padding-right: 0px;
-  padding-left: 4px; }
+  padding-left: 4px;
+  padding-bottom: 2px;
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
+  font-size: 95%; }
 
 .search-history {
   padding: 4px;

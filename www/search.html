@@ -39,11 +39,12 @@
                 <!-- Search bar -->
                <div class="list" id="search-bar" ng-controller="SearchCtrl">
                     <div class="item item-input" id="search-bar-inner">
-                        <input type="text" id="search-input" ng-click="showHistory()">
-                        <button class="button icon ion-ios-search-strong button-energized button-clear"></button>
+                        <input type="text" id="search-input" ng-click="showHistory()" ng-model="keyword">
+                        <button class="button icon ion-ios-search-strong button-energized button-clear" ng-click="search()"></button>
                     </div>
-                    <div class="item search-history" ng-show="isHistoryShown">搜索历史1</div>
-                    <div class="item search-history" ng-show="isHistoryShown">搜索历史2</div>
+                    <div ng-repeat="x in searchHistory">
+                        <div class="item search-history" ng-show="isHistoryShown">{{x}}</div>
+                    </div>
                 </div>
 
                 <div id="content" ng-controller="SceneryListCtrl">

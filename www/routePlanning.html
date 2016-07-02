@@ -32,7 +32,7 @@
         The nav bar that will be updated as we navigate between views.
         -->
         <ion-side-menus>
-            <ion-side-menu-content ng-controller="RouteCtrl">
+            <ion-side-menu-content ng-controller="RoutePlanningCtrl">
                 <!-- Header -->
                 <div class="bar bar-header bar-energized" id="header" ng-controller="HeaderCtrl">
                     <button class="button icon button-clear ion-ios-arrow-left" ng-click="goBack()"></button>
@@ -50,6 +50,14 @@
                                 <app-map-route-planning style="height:100%;margin:0px;" address={{address}}></app-map-route-planning>
                             </ion-content>
                         </ion-view>
+                        <!-- Filter panel -->
+                        <div class="list" id="filter-panel" ng-controller="FilterCtrl">
+                            <div class="item filter-item ion-funnel" id="filter-icon"></div>
+                            <div class="item filter-item ion-android-image" id="filter-1" ng-class="{true: 'filter-on', false: 'filter-off'}[isFilter1On]" ng-click="flipFilter1()"></div>
+                            <div class="item filter-item ion-university" id="filter-2" ng-class="{true: 'filter-on', false: 'filter-off'}[isFilter2On]" ng-click="flipFilter2()"></div>
+                            <div class="item filter-item ion-ios-book" id="filter-3" ng-class="{true: 'filter-on', false: 'filter-off'}[isFilter3On]" ng-click="flipFilter3()"></div>
+                            <div class="item filter-item" id="filter-expand-button"></div>
+                        </div>
                     </div>
 
                     <div id="route-outer-container">
