@@ -10518,7 +10518,8 @@ p.scenery-tag-popup-text {
   color: #fff;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6px; }
+  margin-top: 6px;
+  z-index: 11; }
 
 #bt-login, #bt-register {
   margin-left: 5%;

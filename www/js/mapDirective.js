@@ -62,7 +62,7 @@ appDirectives.directive('appMapSearch', function() {
                             }
                         };
                         var local = new BMap.LocalSearch(map, options);
-                        local.search("景点");
+                        local.searchNearby("景点", r.point, 2000);
 
                         //
 

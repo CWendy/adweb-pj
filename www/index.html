@@ -26,6 +26,7 @@
         <script src="js/controllers.js"></script>
         <script src="js/mapDirective.js"></script>
         <script src="http://api.map.baidu.com/api?v=2.0&ak=GZOFg4UOLYxKWmqGSSIpH6pkAQVWsjCN"></script>
+        <script src="js/sha1.js"></script>
     </head>
     <body ng-app="app">
 
@@ -39,11 +40,11 @@
           <div class="list" >
             <label class="item item-input" id="login-id">
                 <span class="input-label">用户名</span>
-              <input type="text" placeholder="输入您的用户名" id="username">
+              <input type="text" placeholder="输入您的用户名" id="username" ng-model="username">
             </label>
             <label class="item item-input" id="login-password">
                 <span class="input-label">密码</span>
-              <input type="password" placeholder="输入4-10位字符" id="password">
+              <input type="password" placeholder="输入4-10位字符" id="password" ng-model="password">
             </label>
           </div>
           <div >
