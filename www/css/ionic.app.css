@@ -10595,3 +10595,36 @@ p.scenery-tag-popup-text {
   height: 50%;
   z-index: 9;
   background-color: #fff; }
+
+/* Styles for routePlanning.html */
+#route-input-panel {
+  margin-top: 6px; }
+
+#route-start-input, #route-end-input {
+  border: 1px solid #ddd;
+  width: 40%;
+  float: left;
+  padding-right: 0px;
+  padding-left: 4px;
+  padding-bottom: 2px;
+  font-family: "Noto Sans CJK Sc", "华文细黑", "微软雅黑", "AW Conqueror Didot Light", "Calibri";
+  font-size: 95%;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 25px; }
+
+.route-icon, #bt-route-search {
+  float: left; }
+
+.route-icon {
+  color: #666;
+  position: relative;
+  top: 3px; }
+
+#bt-route-search {
+  width: 7%;
+  font-size: 140%;
+  color: #ffc900;
+  padding: 0px;
+  background-color: #fff;
+  border: 0px; }
